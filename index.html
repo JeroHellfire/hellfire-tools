@@ -10,7 +10,6 @@
   :root {
     --green:   #6abf00;
     --red:     #cc1100;
-    --red2:    #ff2200;
     --bg:      #1e1e22;
     --bg2:     #25252b;
     --bg3:     #2c2c34;
@@ -45,16 +44,13 @@
   /* NAV */
   nav {
     position: sticky; top: 0; z-index: 200;
-    background: rgba(22,22,26,0.93);
+    background: rgba(22,22,26,0.95);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0.8rem 2.5rem;
   }
-  .nav-logo img {
-    height: 36px; display: block;
-    filter: drop-shadow(0 0 8px rgba(106,191,0,0.3));
-  }
+  .nav-logo img { height: 32px; display: block; filter: drop-shadow(0 0 8px rgba(106,191,0,0.3)); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     color: var(--muted); text-decoration: none;
@@ -70,7 +66,7 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     text-align: center;
-    padding: 5rem 2rem 4rem;
+    padding: 5rem 1.5rem 4rem;
     position: relative; overflow: hidden;
   }
   .hero::before {
@@ -93,21 +89,16 @@
     pointer-events: none;
   }
 
-  .hero-logo {
-    margin-bottom: 1.8rem;
-    animation: fadeUp 0.9s ease both;
-  }
+  .hero-logo { margin-bottom: 1.5rem; animation: fadeUp 0.9s ease both; }
   .hero-logo img {
-    height: 72px;
+    height: clamp(40px, 8vw, 72px);
     filter: drop-shadow(0 0 24px rgba(106,191,0,0.4));
+    max-width: 90vw;
   }
 
-  .hero-icon {
-    margin-bottom: 2rem;
-    animation: fadeUp 0.9s 0.1s ease both;
-  }
+  .hero-icon { margin-bottom: 1.5rem; animation: fadeUp 0.9s 0.1s ease both; }
   .hero-icon img {
-    height: 150px;
+    height: clamp(100px, 20vw, 160px);
     filter: drop-shadow(0 8px 32px rgba(204,17,0,0.4));
     transition: transform 0.4s;
   }
@@ -115,18 +106,18 @@
 
   .hero-tagline {
     font-family: var(--mono);
-    font-size: 0.75rem; color: var(--green);
-    letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: clamp(0.6rem, 1.5vw, 0.75rem); color: var(--green);
+    letter-spacing: 0.18em; text-transform: uppercase;
     background: rgba(106,191,0,0.07);
     border: 1px solid rgba(106,191,0,0.2);
-    padding: 0.3rem 1.2rem; display: inline-block;
-    margin-bottom: 1.4rem;
+    padding: 0.3rem 1rem; display: inline-block;
+    margin-bottom: 1.2rem;
     animation: fadeUp 0.9s 0.2s ease both;
   }
 
   .hero-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(1.3rem, 4vw, 2.5rem);
     font-weight: 700; letter-spacing: 0.03em; line-height: 1.25;
     margin-bottom: 1rem;
     animation: fadeUp 0.9s 0.28s ease both;
@@ -135,8 +126,9 @@
 
   .hero-desc {
     max-width: 500px; color: var(--muted);
-    font-size: 1rem; font-weight: 300; margin-bottom: 2.5rem;
+    font-size: clamp(0.9rem, 2vw, 1rem); font-weight: 300; margin-bottom: 2rem;
     animation: fadeUp 0.9s 0.36s ease both;
+    padding: 0 1rem;
   }
 
   .hero-cta {
@@ -148,7 +140,7 @@
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'Exo 2', sans-serif; font-weight: 700;
     font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; padding: 0.75rem 2rem;
+    text-decoration: none; padding: 0.75rem 1.8rem;
     transition: all 0.2s; cursor: pointer; border: none;
   }
   .btn-green {
@@ -164,7 +156,7 @@
   .btn-outline:hover { border-color: var(--green); color: var(--green); }
 
   /* SECTIONS */
-  section { padding: 5rem 2rem; }
+  section { padding: 4rem 1.5rem; }
   .container { max-width: 960px; margin: 0 auto; }
 
   .sec-label {
@@ -173,18 +165,17 @@
   }
   .sec-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
     font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.6rem;
   }
   .sec-rule {
     width: 48px; height: 3px;
     background: linear-gradient(90deg, var(--green), var(--red));
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   /* TOOLS LIST */
   #tools { background: var(--bg2); }
-
   .tools-list {
     display: flex; flex-direction: column;
     gap: 1px; background: var(--border);
@@ -194,9 +185,9 @@
   .tool-row {
     background: var(--surface);
     display: grid;
-    grid-template-columns: 72px 1fr auto;
+    grid-template-columns: 64px 1fr auto;
     align-items: center;
-    gap: 1.5rem; padding: 1.6rem 2rem;
+    gap: 1.2rem; padding: 1.4rem 1.5rem;
     transition: background 0.2s;
     position: relative; overflow: hidden;
   }
@@ -211,7 +202,7 @@
   .tool-row:hover::before { transform: scaleY(1); }
 
   .tool-icon {
-    width: 60px; height: 60px; object-fit: contain;
+    width: 54px; height: 54px; object-fit: contain;
     filter: drop-shadow(0 4px 12px rgba(204,17,0,0.3));
     transition: transform 0.3s;
   }
@@ -219,17 +210,14 @@
 
   .tool-name {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1rem; font-weight: 700; letter-spacing: 0.05em;
+    font-size: clamp(0.85rem, 2vw, 1rem); font-weight: 700; letter-spacing: 0.05em;
     color: var(--text); margin-bottom: 0.3rem;
   }
-  .tool-desc {
-    color: var(--muted); font-size: 0.88rem;
-    font-weight: 300; margin-bottom: 0.5rem;
-  }
-  .tool-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .tool-desc { color: var(--muted); font-size: 0.85rem; font-weight: 300; margin-bottom: 0.5rem; }
+  .tool-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
   .tag {
-    font-family: var(--mono); font-size: 0.65rem;
-    letter-spacing: 0.1em; padding: 0.15rem 0.55rem;
+    font-family: var(--mono); font-size: 0.6rem;
+    letter-spacing: 0.08em; padding: 0.15rem 0.5rem;
     border: 1px solid var(--border); color: var(--muted); text-transform: uppercase;
   }
   .tag-green { border-color: rgba(106,191,0,0.3); color: var(--green); background: rgba(106,191,0,0.05); }
@@ -239,59 +227,47 @@
   .btn-dl {
     display: inline-flex; align-items: center; gap: 0.4rem;
     font-family: 'Exo 2', sans-serif; font-weight: 700;
-    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
     text-decoration: none; color: #0a0a0a; background: var(--green);
-    padding: 0.55rem 1.3rem; white-space: nowrap;
+    padding: 0.5rem 1.1rem; white-space: nowrap;
     clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
     transition: all 0.2s; box-shadow: 0 0 14px rgba(106,191,0,0.2);
   }
   .btn-dl:hover { background: #7bd400; box-shadow: 0 0 24px rgba(106,191,0,0.4); }
 
-  .tool-version {
-    font-family: var(--mono); font-size: 0.65rem;
-    color: var(--muted); letter-spacing: 0.1em;
-  }
+  .tool-version { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
 
   .tool-row.soon { opacity: 0.45; pointer-events: none; }
   .tag-soon {
-    font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
-    border: 1px dashed var(--border); padding: 0.15rem 0.55rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 0.6rem; color: var(--muted);
+    border: 1px dashed var(--border); padding: 0.15rem 0.5rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
   }
 
   /* ABOUT */
   #about { background: var(--bg); }
-
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 3rem; align-items: center;
-  }
-  .about-text p {
-    color: #9090a8; font-weight: 300;
-    margin-bottom: 1rem; font-size: 0.95rem;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .about-text p { color: #9090a8; font-weight: 300; margin-bottom: 1rem; font-size: 0.95rem; }
   .about-text p strong { color: var(--text); font-weight: 600; }
 
   .about-stats {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 1px; background: var(--border); border: 1px solid var(--border);
   }
-  .stat-box { background: var(--surface); padding: 1.5rem; text-align: center; }
+  .stat-box { background: var(--surface); padding: 1.2rem 1rem; text-align: center; }
   .stat-num {
-    font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 900;
     color: var(--green); display: block; line-height: 1; margin-bottom: 0.3rem;
   }
-  .stat-label {
-    font-family: var(--mono); font-size: 0.68rem;
-    color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase;
-  }
+  .stat-label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
 
   /* DONATE */
   #donar { background: var(--bg2); text-align: center; }
   .donate-box {
     display: inline-block; background: var(--surface);
     border: 1px solid var(--border);
-    padding: 2.5rem 3.5rem; position: relative;
+    padding: 2.5rem 3rem; position: relative;
     max-width: 520px; width: 100%;
   }
   .donate-box::before, .donate-box::after {
@@ -300,28 +276,18 @@
   }
   .donate-box::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
   .donate-box::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-
-  .donate-title {
-    font-family: 'Orbitron', sans-serif; font-size: 1.3rem;
-    font-weight: 700; margin-bottom: 0.8rem;
-  }
-  .donate-text {
-    color: var(--muted); font-size: 0.9rem;
-    font-weight: 300; margin-bottom: 1.8rem;
-  }
+  .donate-title { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .donate-text { color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1.8rem; }
 
   /* FOOTER */
   footer {
     background: #18181c; border-top: 1px solid var(--border);
-    padding: 2rem 2.5rem;
+    padding: 2rem 2rem;
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 1rem;
   }
-  .footer-logo img { height: 26px; opacity: 0.65; }
-  .footer-text {
-    font-family: var(--mono); font-size: 0.68rem;
-    color: var(--muted); line-height: 1.8; text-align: right;
-  }
+  .footer-logo img { height: 24px; opacity: 0.65; }
+  .footer-text { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.8; text-align: right; }
   .footer-text a { color: var(--green); text-decoration: none; }
 
   @keyframes fadeUp {
@@ -329,14 +295,25 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  @media (max-width: 680px) {
-    nav { padding: 0.8rem 1.2rem; }
-    .nav-links { display: none; }
-    .tool-row { grid-template-columns: 50px 1fr; }
+  /* RESPONSIVE TABLET */
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .tool-row { grid-template-columns: 54px 1fr; }
     .tool-actions { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
+    .tool-row { padding: 1.2rem 1rem; }
+  }
+
+  /* RESPONSIVE MOBILE */
+  @media (max-width: 560px) {
+    nav { padding: 0.8rem 1rem; }
+    .nav-links { display: none; }
+    .hero { padding: 4rem 1rem 3rem; }
+    section { padding: 3rem 1rem; }
+    .donate-box { padding: 1.8rem 1.2rem; }
     .footer-text { text-align: left; }
-    .donate-box { padding: 2rem 1.5rem; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .btn { width: 100%; justify-content: center; }
   }
 </style>
 </head>
@@ -413,12 +390,12 @@
         </div>
         <div class="tool-actions">
           <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.0/MrWhispers_v1.0.exe" class="btn-dl">⬇ Descargar</a>
-          <span class="tool-version">v1.0 · .exe · Windows 10/11</span>
+          <span class="tool-version">v1.0 · .exe · Portable</span>
         </div>
       </div>
 
       <div class="tool-row soon">
-        <div style="width:60px;height:60px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🔧</div>
+        <div style="width:54px;height:54px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🔧</div>
         <div class="tool-info">
           <div class="tool-name">Próximamente...</div>
           <div class="tool-desc">Nueva herramienta en desarrollo.</div>
@@ -454,8 +431,8 @@
           <span class="stat-label">Instalación</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">35</span>
-          <span class="stat-label">Pasadas máx.</span>
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Portable</span>
         </div>
         <div class="stat-box">
           <span class="stat-num">Win</span>
@@ -485,7 +462,7 @@
     <img src="titulo%20github.png" alt="Hellfire Tools">
   </a>
   <div class="footer-text">
-    © 2026 Hellfire Tools · hellfire-tools.github.io<br>
+    © 2026 Hellfire Tools · jerohellfire.github.io/hellfire-tools<br>
     Software libre · uso personal y educativo<br>
     <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank">Donaciones vía PayPal</a>
   </div>
