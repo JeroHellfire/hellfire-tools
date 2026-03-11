@@ -40,7 +40,7 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 0.8rem 2.5rem;
   }
-  .nav-logo img { height: 32px; display: block; filter: drop-shadow(0 0 8px rgba(106,191,0,0.3)); }
+.nav-logo img { height: 32px; display: block; filter: drop-shadow(0 0 8px rgba(106,191,0,0.3)); max-width: 140px; object-fit: contain; }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a {
     color: var(--muted); text-decoration: none; font-weight: 600;
@@ -201,6 +201,8 @@
     .tool-actions { display: none; }
   }
   @media (max-width: 560px) {
+    nav { padding: 0.7rem 0.8rem; overflow: hidden; }
+    .nav-logo img { height: 26px; max-width: 110px; }
     nav { padding: 0.8rem 1rem; }
     .nav-links { gap: 1rem; }
     .hero { padding: 4rem 1rem 3rem; }
@@ -210,8 +212,8 @@
     .hero-cta { flex-direction: column; align-items: center; }
     .btn { width: 100%; justify-content: center; }
   }
-  @media (max-width: 400px) {
-    .nav-links { display: none; }
+  @media (max-width: 600px) {
+    .nav-links .nav-text-link { display: none; }
   }
 </style>
 </head>
@@ -222,9 +224,9 @@
     <img src="titulo%20github.png" alt="Hellfire Tools">
   </a>
   <ul class="nav-links">
-    <li><a href="#tools" data-i18n="nav_tools">Herramientas</a></li>
-    <li><a href="#about" data-i18n="nav_about">Proyecto</a></li>
-    <li><a href="#donar" data-i18n="nav_donate">Donar</a></li>
+    <li class="nav-text-link"><a href="#tools" data-i18n="nav_tools">Herramientas</a></li>
+    <li class="nav-text-link"><a href="#about" data-i18n="nav_about">Proyecto</a></li>
+    <li class="nav-text-link"><a href="#donar" data-i18n="nav_donate">Donar</a></li>
     <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button></li>
   </ul>
 </nav>
