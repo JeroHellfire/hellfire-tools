@@ -178,6 +178,7 @@
   .footer-text a { color: var(--green); text-decoration: none; }
   .visit-counter { font-family: var(--mono); font-size: 0.6rem; color: #444458; letter-spacing: 0.1em; text-align: center; width: 100%; padding-top: 0.5rem; border-top: 1px solid #222230; }
  
+  .dl-count { font-family: var(--mono); font-size: 0.6rem; color: #555570; letter-spacing: 0.08em; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
  
   @media (max-width: 860px) {
@@ -255,8 +256,9 @@
           </div>
         </div>
         <div class="tool-actions">
-          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.3/AdvancedUSBToolkit.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.3/AdvancedUSBToolkit.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('usb')">⬇ Descargar</a>
           <span class="tool-version">v1.3 · .zip · Admin req.</span>
+          <span class="dl-count" id="dl-usb">— <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -273,8 +275,9 @@
           </div>
         </div>
         <div class="tool-actions">
-          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.0/Mrwhispers.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.0/Mrwhispers.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('mr')">⬇ Descargar</a>
           <span class="tool-version">v1.0 · .zip · Portable</span>
+          <span class="dl-count" id="dl-mr">— <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -291,8 +294,9 @@
           </div>
         </div>
         <div class="tool-actions">
-          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.1/Parrot_LAN.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.1/Parrot_LAN.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('parrot')">⬇ Descargar</a>
           <span class="tool-version">v1.1 · .zip · Portable</span>
+          <span class="dl-count" id="dl-parrot">— <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -377,15 +381,54 @@
     <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" data-i18n="footer_donate">Donaciones vía PayPal</a>
   </div>
   <div class="visit-counter">
-    <span data-i18n="visits">Visitas</span>: <span id="visitCount">—</span>
+    <span data-i18n="visits">Visitas</span>: <span id="visitCount">—</span> &nbsp;|&nbsp;
+    <span data-i18n="downloads">Descargas totales</span>: <span id="totalDownloads">—</span>
   </div>
 </footer>
  
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Visit counter (localStorage)
-  const visits = parseInt(localStorage.getItem('ht_visits') || '0') + 1;
-  localStorage.setItem('ht_visits', visits);
-  document.getElementById('visitCount').textContent = visits;
+  // CountAPI namespace
+  const NS = 'hellfiretools-web';
+ 
+  // Visit counter
+  async function initVisits() {
+    try {
+      const r = await fetch('https://api.countapi.xyz/hit/' + NS + '/visits');
+      const d = await r.json();
+      document.getElementById('visitCount').textContent = d.value.toLocaleString();
+    } catch(e) { document.getElementById('visitCount').textContent = '—'; }
+  }
+  initVisits();
+ 
+  // Download counters
+  const dlKeys = { usb: 'dl-usb-toolkit', mr: 'dl-mrwhispers', parrot: 'dl-parrot-lan' };
+ 
+  async function loadDownloadCounts() {
+    let total = 0;
+    for (const [id, key] of Object.entries(dlKeys)) {
+      try {
+        const r = await fetch('https://api.countapi.xyz/get/' + NS + '/' + key);
+        const d = await r.json();
+        const val = d.value || 0;
+        total += val;
+        const el = document.getElementById('dl-' + id);
+        if (el) el.childNodes[0].textContent = val.toLocaleString() + ' ';
+      } catch(e) {}
+    }
+    const td = document.getElementById('totalDownloads');
+    if (td) td.textContent = total.toLocaleString();
+  }
+  loadDownloadCounts();
+ 
+  async function countDownload(id) {
+    try {
+      const r = await fetch('https://api.countapi.xyz/hit/' + NS + '/' + dlKeys[id]);
+      const d = await r.json();
+      const el = document.getElementById('dl-' + id);
+      if (el) el.childNodes[0].textContent = d.value.toLocaleString() + ' ';
+      loadDownloadCounts();
+    } catch(e) {}
+  }
  
   // i18n
   const i18n = {
@@ -416,7 +459,7 @@
       donate_box_text: 'Todo el software es gratuito. Si alguna herramienta te ha ahorrado tiempo o solucionado un problema, considera una pequeña donación para mantener el proyecto vivo.',
       donate_btn: '❤ Donar vía PayPal',
       footer_license: 'Software libre · uso personal y educativo', footer_donate: 'Donaciones vía PayPal',
-      visits: 'Visitas'
+      visits: 'Visitas', downloads: 'Descargas totales', dl_label: 'descargas'
     },
     en: {
       nav_tools: 'Tools', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
@@ -445,7 +488,7 @@
       donate_box_text: 'All software is free. If any tool saved you time or solved a problem, consider a small donation to keep the project alive.',
       donate_btn: '❤ Donate via PayPal',
       footer_license: 'Free software · personal and educational use', footer_donate: 'Donations via PayPal',
-      visits: 'Visits'
+      visits: 'Visits', downloads: 'Total downloads', dl_label: 'downloads'
     }
   };
  
