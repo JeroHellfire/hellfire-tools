@@ -159,10 +159,9 @@
             <span class="tag">Windows 10/11</span>
             <span class="tag">Portable</span>
           </div>
-          <span class="dl-count" id="dl-usb">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
         <div class="tool-actions">
-          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.3/AdvancedUSBToolkit.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('usb')">⬇ Descargar</a>
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.3/AdvancedUSBToolkit.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
           <span class="tool-version">v1.3 · .zip · Admin req.</span>
         </div>
       </div>
@@ -178,10 +177,9 @@
             <span class="tag">Windows 10/11</span>
             <span class="tag">Portable</span>
           </div>
-          <span class="dl-count" id="dl-mr">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
         <div class="tool-actions">
-          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.0/Mrwhispers.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('mr')">⬇ Descargar</a>
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.0/Mrwhispers.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
           <span class="tool-version">v1.0 · .zip · Portable</span>
         </div>
       </div>
@@ -197,10 +195,9 @@
             <span class="tag">Windows 10/11</span>
             <span class="tag">Portable</span>
           </div>
-          <span class="dl-count" id="dl-parrot">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
         <div class="tool-actions">
-          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.1/Parrot_LAN.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('parrot')">⬇ Descargar</a>
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.1/Parrot_LAN.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
           <span class="tool-version">v1.1 · .zip · Portable</span>
         </div>
       </div>
@@ -247,7 +244,7 @@
     <div class="sec-rule"></div>
     <div class="contact-box">
       <p class="contact-desc" data-i18n="contact_desc">¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.</p>
-      <div class="contact-email">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87efe2ebebe1eef5e2f3e8e8ebf4c7f7f5e8f3e8e9a9eae2">[email&#160;protected]</a></div>
+      <div class="contact-email">📧 <span id="cmail"></span></div>
       <div class="contact-items">
         <span class="contact-item" data-i18n="contact_item1">Versiones personalizadas</span>
         <span class="contact-item" data-i18n="contact_item2">Sugerencias</span>
@@ -285,21 +282,7 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Visits tracked by GoatCounter
  
-  // Download counters (localStorage)
-  function loadDownloadCounts() {
-    ['usb', 'mr', 'parrot'].forEach(id => {
-      const val = parseInt(localStorage.getItem('dl_' + id) || '0');
-      const el = document.getElementById('dl-' + id);
-      if (el) el.firstChild.textContent = val + ' ';
-    });
-  }
-  loadDownloadCounts();
  
-  function countDownload(id) {
-    const val = parseInt(localStorage.getItem('dl_' + id) || '0') + 1;
-    localStorage.setItem('dl_' + id, val);
-    loadDownloadCounts();
-  }
  
   // i18n
   const i18n = {
