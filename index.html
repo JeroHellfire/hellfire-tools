@@ -159,11 +159,11 @@
             <span class="tag">Windows 10/11</span>
             <span class="tag">Portable</span>
           </div>
+          <span class="dl-count" id="dl-usb">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
         <div class="tool-actions">
           <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.3/AdvancedUSBToolkit.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('usb')">⬇ Descargar</a>
           <span class="tool-version">v1.3 · .zip · Admin req.</span>
-          <span class="dl-count" id="dl-usb">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -178,11 +178,11 @@
             <span class="tag">Windows 10/11</span>
             <span class="tag">Portable</span>
           </div>
+          <span class="dl-count" id="dl-mr">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
         <div class="tool-actions">
           <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.0/Mrwhispers.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('mr')">⬇ Descargar</a>
           <span class="tool-version">v1.0 · .zip · Portable</span>
-          <span class="dl-count" id="dl-mr">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -197,11 +197,11 @@
             <span class="tag">Windows 10/11</span>
             <span class="tag">Portable</span>
           </div>
+          <span class="dl-count" id="dl-parrot">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
         <div class="tool-actions">
           <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.1/Parrot_LAN.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('parrot')">⬇ Descargar</a>
           <span class="tool-version">v1.1 · .zip · Portable</span>
-          <span class="dl-count" id="dl-parrot">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -247,7 +247,7 @@
     <div class="sec-rule"></div>
     <div class="contact-box">
       <p class="contact-desc" data-i18n="contact_desc">¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.</p>
-      <div class="contact-email">📧 hellfiretools@proton.me</div>
+      <div class="contact-email">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87efe2ebebe1eef5e2f3e8e8ebf4c7f7f5e8f3e8e9a9eae2">[email&#160;protected]</a></div>
       <div class="contact-items">
         <span class="contact-item" data-i18n="contact_item1">Versiones personalizadas</span>
         <span class="contact-item" data-i18n="contact_item2">Sugerencias</span>
@@ -276,26 +276,14 @@
   <div class="footer-text">
     © 2026 Hellfire Tools · jerohellfire.github.io/hellfire-tools<br>
     <span data-i18n="footer_license">Software libre · uso personal y educativo</span><br>
-    hellfiretools@proton.me ·
+    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f171a131319160d1a0b1010130c3f0f0d100b101151121a">[email&#160;protected]</a> ·
     <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" data-i18n="footer_donate">Donaciones vía PayPal</a>
   </div>
-  <div class="visit-counter">
-    <span data-i18n="visits">Visitas</span>: <span id="visitCount">—</span>
-  </div>
+ 
 </footer>
  
-<script>
-  // Visit counter via hits.seeyoufarm.com
-  fetch('https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fjerohellfire.github.io%2Fhellfire-tools&count_bg=%236abf00&title_bg=%23222&icon=&title=visits&edge_flat=true')
-    .then(r => r.text())
-    .then(text => {
-      const matches = text.match(/(\d+)<\/text>/g);
-      if (matches && matches.length >= 2) {
-        const total = matches[matches.length - 1].replace(/<\/text>/, '').replace(/\D/g, '');
-        document.getElementById('visitCount').textContent = parseInt(total).toLocaleString();
-      }
-    })
-    .catch(() => { document.getElementById('visitCount').textContent = '—'; });
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Visits tracked by GoatCounter
  
   // Download counters (localStorage)
   function loadDownloadCounts() {
@@ -378,15 +366,4 @@
   let currentLang = 'es';
   function toggleLang() {
     currentLang = currentLang === 'es' ? 'en' : 'es';
-    document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (i18n[currentLang][key] !== undefined) el.innerHTML = i18n[currentLang][key];
-    });
-    document.documentElement.lang = currentLang;
-    loadDownloadCounts();
-  }
-</script>
- 
-</body>
-</html>
+    document.getElementById('langBtn').
