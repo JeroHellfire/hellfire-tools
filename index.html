@@ -106,11 +106,11 @@
   /* TOOLS */
   #tools { background: var(--bg2); }
   .tools-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .tool-row { background: var(--surface); display: grid; grid-template-columns: 100px 1fr auto; align-items: center; gap: 1.2rem; padding: 1.4rem 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
+  .tool-row { background: var(--surface); display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 1.2rem; padding: 1.4rem 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
   .tool-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--green), var(--red)); transform: scaleY(0); transform-origin: top; transition: transform 0.3s; }
   .tool-row:hover { background: #333340; }
   .tool-row:hover::before { transform: scaleY(1); }
-  .tool-icon { width: 86px; height: 86px; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(204,17,0,0.3)); transition: transform 0.3s; }
+  .tool-icon { width: 129px; height: 129px; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(204,17,0,0.3)); transition: transform 0.3s; }
   .tool-row:hover .tool-icon { transform: scale(1.08); }
   .tool-name { font-family: 'Orbitron', sans-serif; font-size: clamp(0.85rem, 2vw, 1rem); font-weight: 700; letter-spacing: 0.05em; color: var(--text); margin-bottom: 0.3rem; }
   .tool-desc { color: var(--muted); font-size: 0.85rem; font-weight: 300; margin-bottom: 0.5rem; }
@@ -182,7 +182,7 @@
  
   @media (max-width: 860px) {
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .tool-row { grid-template-columns: 86px 1fr; padding: 1.2rem 1rem; }
+    .tool-row { grid-template-columns: 129px 1fr; padding: 1.2rem 1rem; }
     .tool-actions { display: none; }
   }
   @media (max-width: 600px) {
@@ -342,8 +342,8 @@
       <p class="contact-desc" data-i18n="contact_desc">
         ¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.
       </p>
-      <a href="mailto:hellfiretools@proton.me" class="contact-email">
-        📧 hellfiretools@proton.me
+      <a href="/cdn-cgi/l/email-protection#f49c919898929d8691809b9b9887b484869b809b9ada9991" class="contact-email">
+        📧 <span class="__cf_email__" data-cfemail="c6aea3aaaaa0afb4a3b2a9a9aab586b6b4a9b2a9a8e8aba3">[email&#160;protected]</span>
       </a>
       <div class="contact-items">
         <span class="contact-item" data-i18n="contact_item1">Versiones personalizadas</span>
@@ -373,7 +373,7 @@
   <div class="footer-text">
     © 2026 Hellfire Tools · jerohellfire.github.io/hellfire-tools<br>
     <span data-i18n="footer_license">Software libre · uso personal y educativo</span><br>
-    <a href="mailto:hellfiretools@proton.me">hellfiretools@proton.me</a> ·
+    <a href="/cdn-cgi/l/email-protection#f9919c95959f908b9c8d9696958ab9898b968d9697d7949c"><span class="__cf_email__" data-cfemail="630b060f0f050a1106170c0c0f102313110c170c0d4d0e06">[email&#160;protected]</span></a> ·
     <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" data-i18n="footer_donate">Donaciones vía PayPal</a>
   </div>
   <div class="visit-counter">
@@ -381,7 +381,7 @@
   </div>
 </footer>
  
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Visit counter (localStorage)
   const visits = parseInt(localStorage.getItem('ht_visits') || '0') + 1;
   localStorage.setItem('ht_visits', visits);
@@ -451,15 +451,4 @@
  
   let currentLang = 'es';
   function toggleLang() {
-    currentLang = currentLang === 'es' ? 'en' : 'es';
-    document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (i18n[currentLang][key] !== undefined) el.innerHTML = i18n[currentLang][key];
-    });
-    document.documentElement.lang = currentLang;
-  }
-</script>
- 
-</body>
-</html>
+    currentLang = currentLang ===
