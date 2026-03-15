@@ -8,16 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:   #6abf00;
-    --red:     #cc1100;
-    --bg:      #1e1e22;
-    --bg2:     #25252b;
-    --bg3:     #2c2c34;
-    --surface: #2e2e38;
-    --border:  #3a3a48;
-    --text:    #e4e4ec;
-    --muted:   #7a7a96;
-    --mono:    'Share Tech Mono', monospace;
+    --green: #6abf00; --red: #cc1100;
+    --bg: #1e1e22; --bg2: #25252b; --bg3: #2c2c34;
+    --surface: #2e2e38; --border: #3a3a48;
+    --text: #e4e4ec; --muted: #7a7a96;
+    --mono: 'Share Tech Mono', monospace;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -27,8 +22,6 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none; z-index: 9999; opacity: 0.5;
   }
- 
-  /* NAV */
   nav {
     position: sticky; top: 0; z-index: 200;
     background: rgba(22,22,26,0.95); backdrop-filter: blur(14px);
@@ -40,70 +33,31 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--green); }
- 
-  .lang-btn {
-    font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    background: transparent; color: var(--muted);
-    border: 1px solid var(--border); padding: 0.3rem 0.7rem;
-    cursor: pointer; transition: all 0.2s;
-  }
+  .lang-btn { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 0.3rem 0.7rem; cursor: pointer; transition: all 0.2s; }
   .lang-btn:hover { border-color: var(--green); color: var(--green); }
- 
-  /* HERO */
-  .hero {
-    min-height: 90vh; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center; padding: 5rem 1.5rem 4rem;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(106,191,0,0.015) 40px, rgba(106,191,0,0.015) 41px);
-    pointer-events: none;
-  }
-  .hero::after {
-    content: ''; position: absolute; bottom: -10%; left: 50%;
-    transform: translateX(-50%); width: 700px; height: 350px;
-    background: radial-gradient(ellipse at center, rgba(204,17,0,0.12) 0%, rgba(106,191,0,0.06) 40%, transparent 70%);
-    pointer-events: none;
-  }
+  .hero { min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.5rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(106,191,0,0.015) 40px, rgba(106,191,0,0.015) 41px); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -10%; left: 50%; transform: translateX(-50%); width: 700px; height: 350px; background: radial-gradient(ellipse at center, rgba(204,17,0,0.12) 0%, rgba(106,191,0,0.06) 40%, transparent 70%); pointer-events: none; }
   .hero-logo { margin-bottom: 1.5rem; animation: fadeUp 0.9s ease both; }
   .hero-logo img { height: clamp(40px, 8vw, 72px); filter: drop-shadow(0 0 24px rgba(106,191,0,0.4)); max-width: 90vw; }
   .hero-icon { margin-bottom: 1.5rem; animation: fadeUp 0.9s 0.1s ease both; }
   .hero-icon img { height: clamp(158px, 32vw, 253px); filter: drop-shadow(0 8px 32px rgba(204,17,0,0.4)); transition: transform 0.4s; }
   .hero-icon img:hover { transform: scale(1.06) rotate(-2deg); }
-  .hero-tagline {
-    font-family: var(--mono); font-size: clamp(0.6rem, 1.5vw, 0.75rem); color: var(--green);
-    letter-spacing: 0.18em; text-transform: uppercase;
-    background: rgba(106,191,0,0.07); border: 1px solid rgba(106,191,0,0.2);
-    padding: 0.3rem 1rem; display: inline-block; margin-bottom: 1.2rem;
-    animation: fadeUp 0.9s 0.2s ease both;
-  }
+  .hero-tagline { font-family: var(--mono); font-size: clamp(0.6rem, 1.5vw, 0.75rem); color: var(--green); letter-spacing: 0.18em; text-transform: uppercase; background: rgba(106,191,0,0.07); border: 1px solid rgba(106,191,0,0.2); padding: 0.3rem 1rem; display: inline-block; margin-bottom: 1.2rem; animation: fadeUp 0.9s 0.2s ease both; }
   .hero-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.3rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: 0.03em; line-height: 1.25; margin-bottom: 1rem; animation: fadeUp 0.9s 0.28s ease both; }
   .hero-title .accent { color: var(--green); }
   .hero-desc { max-width: 500px; color: var(--muted); font-size: clamp(0.9rem, 2vw, 1rem); font-weight: 300; margin-bottom: 2rem; animation: fadeUp 0.9s 0.36s ease both; padding: 0 1rem; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.9s 0.44s ease both; }
- 
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: 'Exo 2', sans-serif; font-weight: 700;
-    font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; padding: 0.75rem 1.8rem;
-    transition: all 0.2s; cursor: pointer; border: none;
-  }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.75rem 1.8rem; transition: all 0.2s; cursor: pointer; border: none; }
   .btn-green { background: var(--green); color: #0a0a0a; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); box-shadow: 0 0 20px rgba(106,191,0,0.25); }
   .btn-green:hover { background: #7bd400; box-shadow: 0 0 35px rgba(106,191,0,0.45); transform: translateY(-2px); }
   .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
   .btn-outline:hover { border-color: var(--green); color: var(--green); }
- 
   section { padding: 4rem 1.5rem; }
   .container { max-width: 960px; margin: 0 auto; }
   .sec-label { font-family: var(--mono); font-size: 0.68rem; color: var(--green); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .sec-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.3rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.6rem; }
   .sec-rule { width: 48px; height: 3px; background: linear-gradient(90deg, var(--green), var(--red)); margin-bottom: 2.5rem; }
- 
-  /* TOOLS */
   #tools { background: var(--bg2); }
   .tools-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .tool-row { background: var(--surface); display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 1.2rem; padding: 1.4rem 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
@@ -117,23 +71,15 @@
   .tool-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
   .tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.15rem 0.5rem; border: 1px solid var(--border); color: var(--muted); text-transform: uppercase; }
   .tag-green { border-color: rgba(106,191,0,0.3); color: var(--green); background: rgba(106,191,0,0.05); }
-  .tag-red   { border-color: rgba(204,17,0,0.3);  color: #ff4422;      background: rgba(204,17,0,0.05); }
-  .tag-blue  { border-color: rgba(0,150,255,0.3);  color: #2299ff;      background: rgba(0,150,255,0.05); }
+  .tag-red   { border-color: rgba(204,17,0,0.3);  color: #ff4422; background: rgba(204,17,0,0.05); }
+  .tag-blue  { border-color: rgba(0,150,255,0.3);  color: #2299ff; background: rgba(0,150,255,0.05); }
   .tool-actions { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
-  .btn-dl {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: 0.78rem;
-    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-    color: #0a0a0a; background: var(--green); padding: 0.5rem 1.1rem; white-space: nowrap;
-    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-    transition: all 0.2s; box-shadow: 0 0 14px rgba(106,191,0,0.2);
-  }
+  .btn-dl { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: #0a0a0a; background: var(--green); padding: 0.5rem 1.1rem; white-space: nowrap; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); transition: all 0.2s; box-shadow: 0 0 14px rgba(106,191,0,0.2); }
   .btn-dl:hover { background: #7bd400; box-shadow: 0 0 24px rgba(106,191,0,0.4); }
   .tool-version { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
+  .dl-count { font-family: var(--mono); font-size: 0.6rem; color: #555570; letter-spacing: 0.08em; }
   .tool-row.soon { opacity: 0.45; pointer-events: none; }
   .tag-soon { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); border: 1px dashed var(--border); padding: 0.15rem 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; }
- 
-  /* ABOUT */
   #about { background: var(--bg); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .about-text p { color: #9090a8; font-weight: 300; margin-bottom: 1rem; font-size: 0.95rem; }
@@ -142,27 +88,13 @@
   .stat-box { background: var(--surface); padding: 1.2rem 1rem; text-align: center; }
   .stat-num { font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 900; color: var(--green); display: block; line-height: 1; margin-bottom: 0.3rem; }
   .stat-label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
- 
-  /* CONTACT */
   #contact { background: var(--bg2); }
-  .contact-box {
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center; max-width: 600px; margin: 0 auto;
-  }
+  .contact-box { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 600px; margin: 0 auto; }
   .contact-desc { color: #9090a8; font-weight: 300; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.8; }
-  .contact-email {
-    display: inline-flex; align-items: center; gap: 0.8rem;
-    font-family: var(--mono); font-size: 0.95rem; color: var(--green);
-    background: rgba(106,191,0,0.06); border: 1px solid rgba(106,191,0,0.25);
-    padding: 0.8rem 1.8rem; text-decoration: none;
-    transition: all 0.2s; letter-spacing: 0.05em;
-  }
-  .contact-email:hover { background: rgba(106,191,0,0.12); box-shadow: 0 0 20px rgba(106,191,0,0.2); }
+  .contact-email { font-family: var(--mono); font-size: 1rem; color: var(--green); background: rgba(106,191,0,0.06); border: 1px solid rgba(106,191,0,0.25); padding: 0.8rem 1.8rem; letter-spacing: 0.05em; display: inline-block; }
   .contact-items { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
   .contact-item { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
   .contact-item::before { content: '▸'; color: var(--green); }
- 
-  /* DONATE */
   #donar { background: var(--bg); text-align: center; }
   .donate-box { display: inline-block; background: var(--surface); border: 1px solid var(--border); padding: 2.5rem 3rem; position: relative; max-width: 520px; width: 100%; }
   .donate-box::before, .donate-box::after { content: ''; position: absolute; width: 18px; height: 18px; border-color: var(--green); border-style: solid; }
@@ -170,44 +102,21 @@
   .donate-box::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
   .donate-title { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
   .donate-text { color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1.8rem; }
- 
-  /* FOOTER */
   footer { background: #18181c; border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .footer-logo img { height: 24px; opacity: 0.65; }
   .footer-text { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.8; text-align: right; }
   .footer-text a { color: var(--green); text-decoration: none; }
   .visit-counter { font-family: var(--mono); font-size: 0.6rem; color: #444458; letter-spacing: 0.1em; text-align: center; width: 100%; padding-top: 0.5rem; border-top: 1px solid #222230; }
- 
-  .dl-count { font-family: var(--mono); font-size: 0.6rem; color: #555570; letter-spacing: 0.08em; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
- 
-  @media (max-width: 860px) {
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .tool-row { grid-template-columns: 129px 1fr; padding: 1.2rem 1rem; }
-    .tool-actions { display: none; }
-  }
-  @media (max-width: 600px) {
-    .nav-links .nav-text-link { display: none; }
-    nav { padding: 0.7rem 1rem; }
-    .nav-logo img { height: 26px; max-width: 110px; }
-  }
-  @media (max-width: 560px) {
-    .hero { padding: 4rem 1rem 3rem; }
-    section { padding: 3rem 1rem; }
-    .donate-box { padding: 1.8rem 1.2rem; }
-    .footer-text { text-align: left; }
-    .hero-cta { flex-direction: column; align-items: center; }
-    .btn { width: 100%; justify-content: center; }
-    .contact-email { font-size: 0.8rem; padding: 0.7rem 1.2rem; }
-  }
+  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } .tool-row { grid-template-columns: 129px 1fr; padding: 1.2rem 1rem; } .tool-actions { display: none; } }
+  @media (max-width: 600px) { .nav-links .nav-text-link { display: none; } nav { padding: 0.7rem 1rem; } .nav-logo img { height: 26px; max-width: 110px; } }
+  @media (max-width: 560px) { .hero { padding: 4rem 1rem 3rem; } section { padding: 3rem 1rem; } .donate-box { padding: 1.8rem 1.2rem; } .footer-text { text-align: left; } .hero-cta { flex-direction: column; align-items: center; } .btn { width: 100%; justify-content: center; } .contact-email { font-size: 0.8rem; padding: 0.7rem 1rem; } }
 </style>
 </head>
 <body>
  
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="titulo%20github.png" alt="Hellfire Tools">
-  </a>
+  <a href="#" class="nav-logo"><img src="titulo%20github.png" alt="Hellfire Tools"></a>
   <ul class="nav-links">
     <li class="nav-text-link"><a href="#tools" data-i18n="nav_tools">Herramientas</a></li>
     <li class="nav-text-link"><a href="#about" data-i18n="nav_about">Proyecto</a></li>
@@ -218,12 +127,8 @@
 </nav>
  
 <section class="hero">
-  <div class="hero-logo">
-    <img src="titulo%20github.png" alt="Hellfire Tools">
-  </div>
-  <div class="hero-icon">
-    <img src="jerohellfire%20cabra%20web.png" alt="Hellfire Tools">
-  </div>
+  <div class="hero-logo"><img src="titulo%20github.png" alt="Hellfire Tools"></div>
+  <div class="hero-icon"><img src="jerohellfire%20cabra%20web.png" alt="Hellfire Tools"></div>
   <div class="hero-tagline" data-i18n="hero_tagline">▸ Utilidades portátiles para Windows 10/11</div>
   <h1 class="hero-title">
     <span data-i18n="hero_title1">Herramientas que</span> <span class="accent" data-i18n="hero_accent">funcionan</span><br>
@@ -258,7 +163,7 @@
         <div class="tool-actions">
           <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.3/AdvancedUSBToolkit.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('usb')">⬇ Descargar</a>
           <span class="tool-version">v1.3 · .zip · Admin req.</span>
-          <span class="dl-count" id="dl-usb">— <span data-i18n="dl_label">descargas</span></span>
+          <span class="dl-count" id="dl-usb">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -277,7 +182,7 @@
         <div class="tool-actions">
           <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.0/Mrwhispers.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('mr')">⬇ Descargar</a>
           <span class="tool-version">v1.0 · .zip · Portable</span>
-          <span class="dl-count" id="dl-mr">— <span data-i18n="dl_label">descargas</span></span>
+          <span class="dl-count" id="dl-mr">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -296,7 +201,7 @@
         <div class="tool-actions">
           <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/v1.1/Parrot_LAN.zip" class="btn-dl" data-i18n="btn_download" onclick="countDownload('parrot')">⬇ Descargar</a>
           <span class="tool-version">v1.1 · .zip · Portable</span>
-          <span class="dl-count" id="dl-parrot">— <span data-i18n="dl_label">descargas</span></span>
+          <span class="dl-count" id="dl-parrot">0 <span data-i18n="dl_label">descargas</span></span>
         </div>
       </div>
  
@@ -307,9 +212,7 @@
           <div class="tool-desc" data-i18n="soon_desc">Nueva herramienta en desarrollo.</div>
           <div class="tool-tags"><span class="tag-soon" data-i18n="tag_soon">En desarrollo</span></div>
         </div>
-        <div class="tool-actions">
-          <span class="tool-version" data-i18n="soon_ver">— próximo lanzamiento</span>
-        </div>
+        <div class="tool-actions"><span class="tool-version" data-i18n="soon_ver">— próximo lanzamiento</span></div>
       </div>
  
     </div>
@@ -343,12 +246,8 @@
     <h2 class="sec-title" data-i18n="contact_title">¿Tienes algo que decirnos?</h2>
     <div class="sec-rule"></div>
     <div class="contact-box">
-      <p class="contact-desc" data-i18n="contact_desc">
-        ¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.
-      </p>
-      <a href="/cdn-cgi/l/email-protection#f49c919898929d8691809b9b9887b484869b809b9ada9991" class="contact-email">
-        📧 <span class="__cf_email__" data-cfemail="c6aea3aaaaa0afb4a3b2a9a9aab586b6b4a9b2a9a8e8aba3">[email&#160;protected]</span>
-      </a>
+      <p class="contact-desc" data-i18n="contact_desc">¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.</p>
+      <div class="contact-email">📧 hellfiretools@proton.me</div>
       <div class="contact-items">
         <span class="contact-item" data-i18n="contact_item1">Versiones personalizadas</span>
         <span class="contact-item" data-i18n="contact_item2">Sugerencias</span>
@@ -377,57 +276,41 @@
   <div class="footer-text">
     © 2026 Hellfire Tools · jerohellfire.github.io/hellfire-tools<br>
     <span data-i18n="footer_license">Software libre · uso personal y educativo</span><br>
-    <a href="/cdn-cgi/l/email-protection#f9919c95959f908b9c8d9696958ab9898b968d9697d7949c"><span class="__cf_email__" data-cfemail="630b060f0f050a1106170c0c0f102313110c170c0d4d0e06">[email&#160;protected]</span></a> ·
+    hellfiretools@proton.me ·
     <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" data-i18n="footer_donate">Donaciones vía PayPal</a>
   </div>
   <div class="visit-counter">
-    <span data-i18n="visits">Visitas</span>: <span id="visitCount">—</span> &nbsp;|&nbsp;
-    <span data-i18n="downloads">Descargas totales</span>: <span id="totalDownloads">—</span>
+    <span data-i18n="visits">Visitas</span>: <span id="visitCount">—</span>
   </div>
 </footer>
  
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // CountAPI namespace
-  const NS = 'hellfiretools-web';
+<script>
+  // Visit counter via hits.seeyoufarm.com
+  fetch('https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fjerohellfire.github.io%2Fhellfire-tools&count_bg=%236abf00&title_bg=%23222&icon=&title=visits&edge_flat=true')
+    .then(r => r.text())
+    .then(text => {
+      const matches = text.match(/(\d+)<\/text>/g);
+      if (matches && matches.length >= 2) {
+        const total = matches[matches.length - 1].replace(/<\/text>/, '').replace(/\D/g, '');
+        document.getElementById('visitCount').textContent = parseInt(total).toLocaleString();
+      }
+    })
+    .catch(() => { document.getElementById('visitCount').textContent = '—'; });
  
-  // Visit counter
-  async function initVisits() {
-    try {
-      const r = await fetch('https://api.countapi.xyz/hit/' + NS + '/visits');
-      const d = await r.json();
-      document.getElementById('visitCount').textContent = d.value.toLocaleString();
-    } catch(e) { document.getElementById('visitCount').textContent = '—'; }
-  }
-  initVisits();
- 
-  // Download counters
-  const dlKeys = { usb: 'dl-usb-toolkit', mr: 'dl-mrwhispers', parrot: 'dl-parrot-lan' };
- 
-  async function loadDownloadCounts() {
-    let total = 0;
-    for (const [id, key] of Object.entries(dlKeys)) {
-      try {
-        const r = await fetch('https://api.countapi.xyz/get/' + NS + '/' + key);
-        const d = await r.json();
-        const val = d.value || 0;
-        total += val;
-        const el = document.getElementById('dl-' + id);
-        if (el) el.childNodes[0].textContent = val.toLocaleString() + ' ';
-      } catch(e) {}
-    }
-    const td = document.getElementById('totalDownloads');
-    if (td) td.textContent = total.toLocaleString();
+  // Download counters (localStorage)
+  function loadDownloadCounts() {
+    ['usb', 'mr', 'parrot'].forEach(id => {
+      const val = parseInt(localStorage.getItem('dl_' + id) || '0');
+      const el = document.getElementById('dl-' + id);
+      if (el) el.firstChild.textContent = val + ' ';
+    });
   }
   loadDownloadCounts();
  
-  async function countDownload(id) {
-    try {
-      const r = await fetch('https://api.countapi.xyz/hit/' + NS + '/' + dlKeys[id]);
-      const d = await r.json();
-      const el = document.getElementById('dl-' + id);
-      if (el) el.childNodes[0].textContent = d.value.toLocaleString() + ' ';
-      loadDownloadCounts();
-    } catch(e) {}
+  function countDownload(id) {
+    const val = parseInt(localStorage.getItem('dl_' + id) || '0') + 1;
+    localStorage.setItem('dl_' + id, val);
+    loadDownloadCounts();
   }
  
   // i18n
@@ -444,7 +327,7 @@
       mr_desc: 'Esteganografía y cifrado AES-256-GCM. Oculta cualquier archivo dentro de otro con contraseña. Sin rastro visible.',
       parrot_desc: 'Chat cifrado para redes locales con transferencia de archivos. Comunicación directa entre equipos, sin servidores externos. Todo el tráfico permanece en tu red.',
       tag_chat: 'Chat cifrado', tag_lan: 'Red local',
-      btn_download: '⬇ Descargar',
+      btn_download: '⬇ Descargar', dl_label: 'descargas',
       soon_title: 'Próximamente...', soon_desc: 'Nueva herramienta en desarrollo.', tag_soon: 'En desarrollo', soon_ver: '— próximo lanzamiento',
       about_label: '// proyecto', about_title: 'Acerca de<br>Hellfire Tools',
       about_p1: '<strong>Hellfire Tools</strong> es un proyecto independiente de desarrollo de utilidades portátiles para Windows, orientadas a técnicos, estudiantes de informática y usuarios avanzados.',
@@ -459,7 +342,7 @@
       donate_box_text: 'Todo el software es gratuito. Si alguna herramienta te ha ahorrado tiempo o solucionado un problema, considera una pequeña donación para mantener el proyecto vivo.',
       donate_btn: '❤ Donar vía PayPal',
       footer_license: 'Software libre · uso personal y educativo', footer_donate: 'Donaciones vía PayPal',
-      visits: 'Visitas', downloads: 'Descargas totales', dl_label: 'descargas'
+      visits: 'Visitas'
     },
     en: {
       nav_tools: 'Tools', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
@@ -473,7 +356,7 @@
       mr_desc: 'Steganography and AES-256-GCM encryption. Hide any file inside another with a password. No visible trace.',
       parrot_desc: 'Encrypted LAN chat with file transfer. Direct communication between devices, no external servers. All traffic stays on your network.',
       tag_chat: 'Encrypted chat', tag_lan: 'LAN',
-      btn_download: '⬇ Download',
+      btn_download: '⬇ Download', dl_label: 'downloads',
       soon_title: 'Coming soon...', soon_desc: 'New tool in development.', tag_soon: 'In development', soon_ver: '— coming soon',
       about_label: '// project', about_title: 'About<br>Hellfire Tools',
       about_p1: '<strong>Hellfire Tools</strong> is an independent project developing portable utilities for Windows, aimed at technicians, IT students and power users.',
@@ -488,10 +371,22 @@
       donate_box_text: 'All software is free. If any tool saved you time or solved a problem, consider a small donation to keep the project alive.',
       donate_btn: '❤ Donate via PayPal',
       footer_license: 'Free software · personal and educational use', footer_donate: 'Donations via PayPal',
-      visits: 'Visits', downloads: 'Total downloads', dl_label: 'downloads'
+      visits: 'Visits'
     }
   };
  
   let currentLang = 'es';
   function toggleLang() {
-    currentLang = currentLang ===
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (i18n[currentLang][key] !== undefined) el.innerHTML = i18n[currentLang][key];
+    });
+    document.documentElement.lang = currentLang;
+    loadDownloadCounts();
+  }
+</script>
+ 
+</body>
+</html>
