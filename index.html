@@ -91,7 +91,8 @@
   #contact { background: var(--bg2); }
   .contact-box { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 600px; margin: 0 auto; }
   .contact-desc { color: #9090a8; font-weight: 300; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.8; }
-  .contact-email { font-family: var(--mono); font-size: 1rem; color: var(--green); background: rgba(106,191,0,0.06); border: 1px solid rgba(106,191,0,0.25); padding: 0.8rem 1.8rem; letter-spacing: 0.05em; display: inline-block; }
+  .contact-email { font-family: var(--mono); font-size: 1rem; color: var(--green); background: rgba(106,191,0,0.06); border: 1px solid rgba(106,191,0,0.25); padding: 0.8rem 1.8rem; letter-spacing: 0.05em; display: inline-block; cursor: pointer; transition: all 0.2s; }
+  .contact-email:hover { background: rgba(106,191,0,0.15); box-shadow: 0 0 20px rgba(106,191,0,0.2); }
   .contact-items { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
   .contact-item { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
   .contact-item::before { content: '▸'; color: var(--green); }
@@ -244,7 +245,7 @@
     <div class="sec-rule"></div>
     <div class="contact-box">
       <p class="contact-desc" data-i18n="contact_desc">¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.</p>
-      <div class="contact-email">📧 <span id="cmail"></span></div>
+      <button class="contact-email" id="mailBtn" onclick="openMail()">✉ <span data-i18n="contact_btn">Enviar mensaje</span></button>
       <div class="contact-items">
         <span class="contact-item" data-i18n="contact_item1">Versiones personalizadas</span>
         <span class="contact-item" data-i18n="contact_item2">Sugerencias</span>
@@ -307,6 +308,7 @@
       stat_tools: 'Herramientas', stat_install: 'Instalación',
       contact_label: '// contacto', contact_title: '¿Tienes algo que decirnos?',
       contact_desc: '¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.',
+      contact_btn: 'Enviar mensaje',
       contact_item1: 'Versiones personalizadas', contact_item2: 'Sugerencias', contact_item3: 'Reporte de errores',
       donate_label: '// apoya el proyecto', donate_title: '¿Te ha sido útil?',
       donate_box_title: 'Apoya Hellfire Tools',
@@ -336,6 +338,7 @@
       stat_tools: 'Tools', stat_install: 'Installation',
       contact_label: '// contact', contact_title: 'Got something to say?',
       contact_desc: 'Want a custom version of a tool? Have a suggestion or found a bug? Write to us, we read every message.',
+      contact_btn: 'Send message',
       contact_item1: 'Custom versions', contact_item2: 'Suggestions', contact_item3: 'Bug reports',
       donate_label: '// support the project', donate_title: 'Was it useful?',
       donate_box_title: 'Support Hellfire Tools',
