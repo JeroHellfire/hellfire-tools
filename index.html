@@ -17,24 +17,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Exo 2', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-  body::after {
-    content: ''; position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 9999; opacity: 0.5;
-  }
-  nav {
-    position: sticky; top: 0; z-index: 200;
-    background: rgba(22,22,26,0.95); backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.8rem 2.5rem;
-  }
+  body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.5; }
+ 
+  nav { position: sticky; top: 0; z-index: 200; background: rgba(22,22,26,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 2.5rem; }
   .nav-logo img { height: 32px; display: block; filter: drop-shadow(0 0 8px rgba(106,191,0,0.3)); max-width: 140px; object-fit: contain; }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--green); }
   .lang-btn { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 0.3rem 0.7rem; cursor: pointer; transition: all 0.2s; }
   .lang-btn:hover { border-color: var(--green); color: var(--green); }
+ 
   .hero { min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.5rem 4rem; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(106,191,0,0.015) 40px, rgba(106,191,0,0.015) 41px); pointer-events: none; }
   .hero::after { content: ''; position: absolute; bottom: -10%; left: 50%; transform: translateX(-50%); width: 700px; height: 350px; background: radial-gradient(ellipse at center, rgba(204,17,0,0.12) 0%, rgba(106,191,0,0.06) 40%, transparent 70%); pointer-events: none; }
@@ -48,16 +40,19 @@
   .hero-title .accent { color: var(--green); }
   .hero-desc { max-width: 500px; color: var(--muted); font-size: clamp(0.9rem, 2vw, 1rem); font-weight: 300; margin-bottom: 2rem; animation: fadeUp 0.9s 0.36s ease both; padding: 0 1rem; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.9s 0.44s ease both; }
+ 
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.75rem 1.8rem; transition: all 0.2s; cursor: pointer; border: none; }
   .btn-green { background: var(--green); color: #0a0a0a; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); box-shadow: 0 0 20px rgba(106,191,0,0.25); }
   .btn-green:hover { background: #7bd400; box-shadow: 0 0 35px rgba(106,191,0,0.45); transform: translateY(-2px); }
   .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
   .btn-outline:hover { border-color: var(--green); color: var(--green); }
+ 
   section { padding: 4rem 1.5rem; }
   .container { max-width: 960px; margin: 0 auto; }
   .sec-label { font-family: var(--mono); font-size: 0.68rem; color: var(--green); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .sec-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.3rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.6rem; }
   .sec-rule { width: 48px; height: 3px; background: linear-gradient(90deg, var(--green), var(--red)); margin-bottom: 2.5rem; }
+ 
   #tools { background: var(--bg2); }
   .tools-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .tool-row { background: var(--surface); display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 1.2rem; padding: 1.4rem 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
@@ -71,15 +66,15 @@
   .tool-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
   .tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.15rem 0.5rem; border: 1px solid var(--border); color: var(--muted); text-transform: uppercase; }
   .tag-green { border-color: rgba(106,191,0,0.3); color: var(--green); background: rgba(106,191,0,0.05); }
-  .tag-red   { border-color: rgba(204,17,0,0.3);  color: #ff4422; background: rgba(204,17,0,0.05); }
-  .tag-blue  { border-color: rgba(0,150,255,0.3);  color: #2299ff; background: rgba(0,150,255,0.05); }
+  .tag-red { border-color: rgba(204,17,0,0.3); color: #ff4422; background: rgba(204,17,0,0.05); }
+  .tag-blue { border-color: rgba(0,150,255,0.3); color: #2299ff; background: rgba(0,150,255,0.05); }
   .tool-actions { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
   .btn-dl { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: #0a0a0a; background: var(--green); padding: 0.5rem 1.1rem; white-space: nowrap; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); transition: all 0.2s; box-shadow: 0 0 14px rgba(106,191,0,0.2); }
   .btn-dl:hover { background: #7bd400; box-shadow: 0 0 24px rgba(106,191,0,0.4); }
   .tool-version { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
-  .dl-count { font-family: var(--mono); font-size: 0.6rem; color: #555570; letter-spacing: 0.08em; }
   .tool-row.soon { opacity: 0.45; pointer-events: none; }
   .tag-soon { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); border: 1px dashed var(--border); padding: 0.15rem 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; }
+ 
   #about { background: var(--bg); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .about-text p { color: #9090a8; font-weight: 300; margin-bottom: 1rem; font-size: 0.95rem; }
@@ -88,30 +83,32 @@
   .stat-box { background: var(--surface); padding: 1.2rem 1rem; text-align: center; }
   .stat-num { font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 900; color: var(--green); display: block; line-height: 1; margin-bottom: 0.3rem; }
   .stat-label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+ 
   #contact { background: var(--bg2); }
   .contact-box { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 600px; margin: 0 auto; }
   .contact-desc { color: #9090a8; font-weight: 300; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.8; }
-  .contact-email { font-family: var(--mono); font-size: 1rem; color: var(--green); background: rgba(106,191,0,0.06); border: 1px solid rgba(106,191,0,0.25); padding: 0.8rem 1.8rem; letter-spacing: 0.05em; display: inline-block; cursor: pointer; transition: all 0.2s; }
-  .contact-email:hover { background: rgba(106,191,0,0.15); box-shadow: 0 0 20px rgba(106,191,0,0.2); }
   .contact-items { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
   .contact-item { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
   .contact-item::before { content: '▸'; color: var(--green); }
+ 
   #donar { background: var(--bg); text-align: center; }
   .donate-box { display: inline-block; background: var(--surface); border: 1px solid var(--border); padding: 2.5rem 3rem; position: relative; max-width: 520px; width: 100%; }
   .donate-box::before, .donate-box::after { content: ''; position: absolute; width: 18px; height: 18px; border-color: var(--green); border-style: solid; }
   .donate-box::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-  .donate-box::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+  .donate-box::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
   .donate-title { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
   .donate-text { color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1.8rem; }
+ 
   footer { background: #18181c; border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .footer-logo img { height: 24px; opacity: 0.65; }
   .footer-text { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.8; text-align: right; }
   .footer-text a { color: var(--green); text-decoration: none; }
-  .visit-counter { font-family: var(--mono); font-size: 0.6rem; color: #444458; letter-spacing: 0.1em; text-align: center; width: 100%; padding-top: 0.5rem; border-top: 1px solid #222230; }
+ 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+ 
   @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } .tool-row { grid-template-columns: 129px 1fr; padding: 1.2rem 1rem; } .tool-actions { display: none; } }
   @media (max-width: 600px) { .nav-links .nav-text-link { display: none; } nav { padding: 0.7rem 1rem; } .nav-logo img { height: 26px; max-width: 110px; } }
-  @media (max-width: 560px) { .hero { padding: 4rem 1rem 3rem; } section { padding: 3rem 1rem; } .donate-box { padding: 1.8rem 1.2rem; } .footer-text { text-align: left; } .hero-cta { flex-direction: column; align-items: center; } .btn { width: 100%; justify-content: center; } .contact-email { font-size: 0.8rem; padding: 0.7rem 1rem; } }
+  @media (max-width: 560px) { .hero { padding: 4rem 1rem 3rem; } section { padding: 3rem 1rem; } .donate-box { padding: 1.8rem 1.2rem; } .footer-text { text-align: left; } .hero-cta { flex-direction: column; align-items: center; } .btn { width: 100%; justify-content: center; } }
 </style>
 </head>
 <body>
@@ -274,96 +271,85 @@
   <div class="footer-text">
     © 2026 Hellfire Tools · jerohellfire.github.io/hellfire-tools<br>
     <span data-i18n="footer_license">Software libre · uso personal y educativo</span><br>
-    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f171a131319160d1a0b1010130c3f0f0d100b101151121a">[email&#160;protected]</a> ·
     <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" data-i18n="footer_donate">Donaciones vía PayPal</a>
   </div>
- 
 </footer>
  
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Visits tracked by GoatCounter
- 
- 
- 
-  // i18n
-  const i18n = {
-    es: {
-      nav_tools: 'Herramientas', nav_about: 'Proyecto', nav_contact: 'Contacto', nav_donate: 'Donar',
-      hero_tagline: '▸ Utilidades portátiles para Windows 10/11',
-      hero_title1: 'Herramientas que', hero_accent: 'funcionan', hero_title2: 'cuando más las necesitas.',
-      hero_desc: 'Software portable para diagnóstico, recuperación y seguridad. Sin instalación. Sin complicaciones. Solo resultados.',
-      hero_cta1: 'Ver herramientas', hero_cta2: 'Acerca del proyecto',
-      tools_label: '// descargas', tools_title: 'Herramientas',
-      usb_desc: 'Recuperación, diagnóstico y borrado seguro de dispositivos USB. Borrado hasta 35 pasadas (Gutmann). Write Protect a nivel de controlador.',
-      tag_recovery: 'Recuperación', tag_wipe: 'Borrado seguro', tag_steg: 'Esteganografía',
-      mr_desc: 'Esteganografía y cifrado AES-256-GCM. Oculta cualquier archivo dentro de otro con contraseña. Sin rastro visible.',
-      parrot_desc: 'Chat cifrado para redes locales con transferencia de archivos. Comunicación directa entre equipos, sin servidores externos. Todo el tráfico permanece en tu red.',
-      tag_chat: 'Chat cifrado', tag_lan: 'Red local',
-      btn_download: '⬇ Descargar', dl_label: 'descargas',
-      soon_title: 'Próximamente...', soon_desc: 'Nueva herramienta en desarrollo.', tag_soon: 'En desarrollo', soon_ver: '— próximo lanzamiento',
-      about_label: '// proyecto', about_title: 'Acerca de<br>Hellfire Tools',
-      about_p1: '<strong>Hellfire Tools</strong> es un proyecto independiente de desarrollo de utilidades portátiles para Windows, orientadas a técnicos, estudiantes de informática y usuarios avanzados.',
-      about_p2: 'Todas las herramientas son <strong>software libre para uso personal y educativo</strong>, distribuidas sin instalación y con foco en la simplicidad y la potencia real.',
-      about_p3: 'El proyecto está en constante crecimiento. Cada nueva herramienta nace de una necesidad real detectada en el campo.',
-      stat_tools: 'Herramientas', stat_install: 'Instalación',
-      contact_label: '// contacto', contact_title: '¿Tienes algo que decirnos?',
-      contact_desc: '¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.',
-      contact_btn: 'Enviar mensaje',
-      contact_item1: 'Versiones personalizadas', contact_item2: 'Sugerencias', contact_item3: 'Reporte de errores',
-      donate_label: '// apoya el proyecto', donate_title: '¿Te ha sido útil?',
-      donate_box_title: 'Apoya Hellfire Tools',
-      donate_box_text: 'Todo el software es gratuito. Si alguna herramienta te ha ahorrado tiempo o solucionado un problema, considera una pequeña donación para mantener el proyecto vivo.',
-      donate_btn: '❤ Donar vía PayPal',
-      footer_license: 'Software libre · uso personal y educativo', footer_donate: 'Donaciones vía PayPal',
-      visits: 'Visitas'
-    },
-    en: {
-      nav_tools: 'Tools', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
-      hero_tagline: '▸ Portable utilities for Windows 10/11',
-      hero_title1: 'Tools that', hero_accent: 'work', hero_title2: 'when you need them most.',
-      hero_desc: 'Portable software for diagnostics, recovery and security. No installation. No hassle. Just results.',
-      hero_cta1: 'See tools', hero_cta2: 'About the project',
-      tools_label: '// downloads', tools_title: 'Tools',
-      usb_desc: 'Recovery, diagnostics and secure wiping of USB devices. Up to 35-pass wipe (Gutmann method). Write Protect at controller level.',
-      tag_recovery: 'Recovery', tag_wipe: 'Secure wipe', tag_steg: 'Steganography',
-      mr_desc: 'Steganography and AES-256-GCM encryption. Hide any file inside another with a password. No visible trace.',
-      parrot_desc: 'Encrypted LAN chat with file transfer. Direct communication between devices, no external servers. All traffic stays on your network.',
-      tag_chat: 'Encrypted chat', tag_lan: 'LAN',
-      btn_download: '⬇ Download', dl_label: 'downloads',
-      soon_title: 'Coming soon...', soon_desc: 'New tool in development.', tag_soon: 'In development', soon_ver: '— coming soon',
-      about_label: '// project', about_title: 'About<br>Hellfire Tools',
-      about_p1: '<strong>Hellfire Tools</strong> is an independent project developing portable utilities for Windows, aimed at technicians, IT students and power users.',
-      about_p2: 'All tools are <strong>free software for personal and educational use</strong>, distributed without installation and focused on simplicity and real power.',
-      about_p3: 'The project is constantly growing. Every new tool is born from a real need found in the field.',
-      stat_tools: 'Tools', stat_install: 'Installation',
-      contact_label: '// contact', contact_title: 'Got something to say?',
-      contact_desc: 'Want a custom version of a tool? Have a suggestion or found a bug? Write to us, we read every message.',
-      contact_btn: 'Send message',
-      contact_item1: 'Custom versions', contact_item2: 'Suggestions', contact_item3: 'Bug reports',
-      donate_label: '// support the project', donate_title: 'Was it useful?',
-      donate_box_title: 'Support Hellfire Tools',
-      donate_box_text: 'All software is free. If any tool saved you time or solved a problem, consider a small donation to keep the project alive.',
-      donate_btn: '❤ Donate via PayPal',
-      footer_license: 'Free software · personal and educational use', footer_donate: 'Donations via PayPal',
-      visits: 'Visits'
-    }
-  };
- 
-  let currentLang = 'es';
-  function toggleLang() {
-    currentLang = currentLang === 'es' ? 'en' : 'es';
-  let currentLang = 'es';
-  function toggleLang() {
-    currentLang = currentLang === 'es' ? 'en' : 'es';
-    document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (i18n[currentLang][key] !== undefined) el.innerHTML = i18n[currentLang][key];
-    });
-    document.documentElement.lang = currentLang;
+<script>
+const i18n = {
+  es: {
+    nav_tools: 'Herramientas', nav_about: 'Proyecto', nav_contact: 'Contacto', nav_donate: 'Donar',
+    hero_tagline: '▸ Utilidades portátiles para Windows 10/11',
+    hero_title1: 'Herramientas que', hero_accent: 'funcionan', hero_title2: 'cuando más las necesitas.',
+    hero_desc: 'Software portable para diagnóstico, recuperación y seguridad. Sin instalación. Sin complicaciones. Solo resultados.',
+    hero_cta1: 'Ver herramientas', hero_cta2: 'Acerca del proyecto',
+    tools_label: '// descargas', tools_title: 'Herramientas',
+    usb_desc: 'Recuperación, diagnóstico y borrado seguro de dispositivos USB. Borrado hasta 35 pasadas (Gutmann). Write Protect a nivel de controlador.',
+    tag_recovery: 'Recuperación', tag_wipe: 'Borrado seguro', tag_steg: 'Esteganografía',
+    mr_desc: 'Esteganografía y cifrado AES-256-GCM. Oculta cualquier archivo dentro de otro con contraseña. Sin rastro visible.',
+    parrot_desc: 'Chat cifrado para redes locales con transferencia de archivos. Comunicación directa entre equipos, sin servidores externos. Todo el tráfico permanece en tu red.',
+    tag_chat: 'Chat cifrado', tag_lan: 'Red local', btn_download: '⬇ Descargar',
+    soon_title: 'Próximamente...', soon_desc: 'Nueva herramienta en desarrollo.', tag_soon: 'En desarrollo', soon_ver: '— próximo lanzamiento',
+    about_label: '// proyecto', about_title: 'Acerca de<br>Hellfire Tools',
+    about_p1: '<strong>Hellfire Tools</strong> es un proyecto independiente de desarrollo de utilidades portátiles para Windows, orientadas a técnicos, estudiantes de informática y usuarios avanzados.',
+    about_p2: 'Todas las herramientas son <strong>software libre para uso personal y educativo</strong>, distribuidas sin instalación y con foco en la simplicidad y la potencia real.',
+    about_p3: 'El proyecto está en constante crecimiento. Cada nueva herramienta nace de una necesidad real detectada en el campo.',
+    stat_tools: 'Herramientas', stat_install: 'Instalación',
+    contact_label: '// contacto', contact_title: '¿Tienes algo que decirnos?',
+    contact_desc: '¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.',
+    contact_item1: 'Versiones personalizadas', contact_item2: 'Sugerencias', contact_item3: 'Reporte de errores',
+    donate_label: '// apoya el proyecto', donate_title: '¿Te ha sido útil?',
+    donate_box_title: 'Apoya Hellfire Tools',
+    donate_box_text: 'Todo el software es gratuito. Si alguna herramienta te ha ahorrado tiempo o solucionado un problema, considera una pequeña donación para mantener el proyecto vivo.',
+    donate_btn: '❤ Donar vía PayPal',
+    footer_license: 'Software libre · uso personal y educativo', footer_donate: 'Donaciones vía PayPal'
+  },
+  en: {
+    nav_tools: 'Tools', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
+    hero_tagline: '▸ Portable utilities for Windows 10/11',
+    hero_title1: 'Tools that', hero_accent: 'work', hero_title2: 'when you need them most.',
+    hero_desc: 'Portable software for diagnostics, recovery and security. No installation. No hassle. Just results.',
+    hero_cta1: 'See tools', hero_cta2: 'About the project',
+    tools_label: '// downloads', tools_title: 'Tools',
+    usb_desc: 'Recovery, diagnostics and secure wiping of USB devices. Up to 35-pass wipe (Gutmann method). Write Protect at controller level.',
+    tag_recovery: 'Recovery', tag_wipe: 'Secure wipe', tag_steg: 'Steganography',
+    mr_desc: 'Steganography and AES-256-GCM encryption. Hide any file inside another with a password. No visible trace.',
+    parrot_desc: 'Encrypted LAN chat with file transfer. Direct communication between devices, no external servers. All traffic stays on your network.',
+    tag_chat: 'Encrypted chat', tag_lan: 'LAN', btn_download: '⬇ Download',
+    soon_title: 'Coming soon...', soon_desc: 'New tool in development.', tag_soon: 'In development', soon_ver: '— coming soon',
+    about_label: '// project', about_title: 'About<br>Hellfire Tools',
+    about_p1: '<strong>Hellfire Tools</strong> is an independent project developing portable utilities for Windows, aimed at technicians, IT students and power users.',
+    about_p2: 'All tools are <strong>free software for personal and educational use</strong>, distributed without installation and focused on simplicity and real power.',
+    about_p3: 'The project is constantly growing. Every new tool is born from a real need found in the field.',
+    stat_tools: 'Tools', stat_install: 'Installation',
+    contact_label: '// contact', contact_title: 'Got something to say?',
+    contact_desc: 'Want a custom version of a tool? Have a suggestion or found a bug? Write to us, we read every message.',
+    contact_item1: 'Custom versions', contact_item2: 'Suggestions', contact_item3: 'Bug reports',
+    donate_label: '// support the project', donate_title: 'Was it useful?',
+    donate_box_title: 'Support Hellfire Tools',
+    donate_box_text: 'All software is free. If any tool saved you time or solved a problem, consider a small donation to keep the project alive.',
+    donate_btn: '❤ Donate via PayPal',
+    footer_license: 'Free software · personal and educational use', footer_donate: 'Donations via PayPal'
   }
+};
+ 
+let currentLang = 'es';
+ 
+function toggleLang() {
+  currentLang = currentLang === 'es' ? 'en' : 'es';
+  document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[currentLang][key] !== undefined) {
+      el.innerHTML = i18n[currentLang][key];
+    }
+  });
+  document.documentElement.lang = currentLang;
+}
 </script>
  
 <script data-goatcounter="https://hellfiretools.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+ 
 </body>
 </html>
+ 
