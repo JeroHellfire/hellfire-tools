@@ -118,6 +118,7 @@
   <ul class="nav-links">
     <li class="nav-text-link"><a href="#tools" data-i18n="nav_tools">Herramientas</a></li>
     <li class="nav-text-link"><a href="#about" data-i18n="nav_about">Proyecto</a></li>
+    <li class="nav-text-link"><a href="#utilities" data-i18n="nav_utilities">Utilidades</a></li>
     <li class="nav-text-link"><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
     <li class="nav-text-link"><a href="#donar" data-i18n="nav_donate">Donar</a></li>
     <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button></li>
@@ -214,6 +215,45 @@
   </div>
 </section>
  
+<section id="utilities">
+  <div class="container">
+    <p class="sec-label" data-i18n="util_label">// utilidades</p>
+    <h2 class="sec-title" data-i18n="util_title">Utilidades</h2>
+    <div class="sec-rule"></div>
+    <div class="tools-list">
+ 
+      <div class="tool-row">
+        <img class="tool-icon" src="antmaker_logo.png" alt="AntMaker">
+        <div class="tool-info">
+          <div class="tool-name">AntMaker</div>
+          <div class="tool-desc" data-i18n="ant_desc">Calculadora de costes de impresión 3D. Calcula el precio real de cada impresión teniendo en cuenta material, electricidad, tiempo y margen de beneficio.</div>
+          <div class="tool-tags">
+            <span class="tag tag-green" data-i18n="tag_calc">Calculadora</span>
+            <span class="tag tag-orange" data-i18n="tag_3d">Impresión 3D</span>
+            <span class="tag">Windows 10/11</span>
+            <span class="tag">Portable</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/antmakerv1.0/Antmaker.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1.0 · .zip · Portable</span>
+        </div>
+      </div>
+ 
+      <div class="tool-row soon">
+        <div style="width:54px;height:54px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🔧</div>
+        <div class="tool-info">
+          <div class="tool-name" data-i18n="soon_title">Próximamente...</div>
+          <div class="tool-desc" data-i18n="soon_desc">Nueva utilidad en desarrollo.</div>
+          <div class="tool-tags"><span class="tag-soon" data-i18n="tag_soon">En desarrollo</span></div>
+        </div>
+        <div class="tool-actions"><span class="tool-version" data-i18n="soon_ver">— próximo lanzamiento</span></div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
 <section id="about">
   <div class="container">
     <p class="sec-label" data-i18n="about_label">// proyecto</p>
@@ -227,13 +267,15 @@
       </div>
       <div class="about-stats">
         <div class="stat-box"><span class="stat-num">3</span><span class="stat-label" data-i18n="stat_tools">Herramientas</span></div>
-        <div class="stat-box"><span class="stat-num">0</span><span class="stat-label" data-i18n="stat_install">Instalación</span></div>
+        <div class="stat-box"><span class="stat-num">1</span><span class="stat-label" data-i18n="stat_utils">Utilidades</span></div>
         <div class="stat-box"><span class="stat-num">100%</span><span class="stat-label">Portable</span></div>
         <div class="stat-box"><span class="stat-num">Win</span><span class="stat-label">10 / 11 x64</span></div>
       </div>
     </div>
   </div>
 </section>
+ 
+ 
  
 <section id="contact">
   <div class="container">
@@ -278,7 +320,7 @@
 <script>
 const i18n = {
   es: {
-    nav_tools: 'Herramientas', nav_about: 'Proyecto', nav_contact: 'Contacto', nav_donate: 'Donar',
+    nav_tools: 'Herramientas', nav_utilities: 'Utilidades', nav_about: 'Proyecto', nav_contact: 'Contacto', nav_donate: 'Donar',
     hero_tagline: '▸ Utilidades portátiles para Windows 10/11',
     hero_title1: 'Herramientas que', hero_accent: 'funcionan', hero_title2: 'cuando más las necesitas.',
     hero_desc: 'Software portable para diagnóstico, recuperación y seguridad. Sin instalación. Sin complicaciones. Solo resultados.',
@@ -294,7 +336,10 @@ const i18n = {
     about_p1: '<strong>Hellfire Tools</strong> es un proyecto independiente de desarrollo de utilidades portátiles para Windows, orientadas a técnicos, estudiantes de informática y usuarios avanzados.',
     about_p2: 'Todas las herramientas son <strong>software libre para uso personal y educativo</strong>, distribuidas sin instalación y con foco en la simplicidad y la potencia real.',
     about_p3: 'El proyecto está en constante crecimiento. Cada nueva herramienta nace de una necesidad real detectada en el campo.',
-    stat_tools: 'Herramientas', stat_install: 'Instalación',
+    stat_tools: 'Herramientas', stat_utils: 'Utilidades',
+    util_label: '// utilidades', util_title: 'Utilidades',
+    ant_desc: 'Calculadora de costes de impresión 3D. Calcula el precio real de cada impresión teniendo en cuenta material, electricidad, tiempo y margen de beneficio.',
+    tag_calc: 'Calculadora', tag_3d: 'Impresión 3D',
     contact_label: '// contacto', contact_title: '¿Tienes algo que decirnos?',
     contact_desc: '¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.',
     contact_item1: 'Versiones personalizadas', contact_item2: 'Sugerencias', contact_item3: 'Reporte de errores',
@@ -305,7 +350,7 @@ const i18n = {
     footer_license: 'Software libre · uso personal y educativo', footer_donate: 'Donaciones vía PayPal'
   },
   en: {
-    nav_tools: 'Tools', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
+    nav_tools: 'Tools', nav_utilities: 'Utilities', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
     hero_tagline: '▸ Portable utilities for Windows 10/11',
     hero_title1: 'Tools that', hero_accent: 'work', hero_title2: 'when you need them most.',
     hero_desc: 'Portable software for diagnostics, recovery and security. No installation. No hassle. Just results.',
@@ -321,7 +366,10 @@ const i18n = {
     about_p1: '<strong>Hellfire Tools</strong> is an independent project developing portable utilities for Windows, aimed at technicians, IT students and power users.',
     about_p2: 'All tools are <strong>free software for personal and educational use</strong>, distributed without installation and focused on simplicity and real power.',
     about_p3: 'The project is constantly growing. Every new tool is born from a real need found in the field.',
-    stat_tools: 'Tools', stat_install: 'Installation',
+    stat_tools: 'Tools', stat_utils: 'Utilities',
+    util_label: '// utilities', util_title: 'Utilities',
+    ant_desc: '3D printing cost calculator. Calculate the real price of each print taking into account material, electricity, time and profit margin.',
+    tag_calc: 'Calculator', tag_3d: '3D Printing',
     contact_label: '// contact', contact_title: 'Got something to say?',
     contact_desc: 'Want a custom version of a tool? Have a suggestion or found a bug? Write to us, we read every message.',
     contact_item1: 'Custom versions', contact_item2: 'Suggestions', contact_item3: 'Bug reports',
