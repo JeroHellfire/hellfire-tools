@@ -18,7 +18,7 @@
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Exo 2', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
   body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.5; }
- 
+
   nav { position: sticky; top: 0; z-index: 200; background: rgba(22,22,26,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 2.5rem; }
   .nav-logo img { height: 32px; display: block; filter: drop-shadow(0 0 8px rgba(106,191,0,0.3)); max-width: 140px; object-fit: contain; }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
@@ -26,7 +26,7 @@
   .nav-links a:hover { color: var(--green); }
   .lang-btn { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 0.3rem 0.7rem; cursor: pointer; transition: all 0.2s; }
   .lang-btn:hover { border-color: var(--green); color: var(--green); }
- 
+
   .hero { min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.5rem 4rem; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(106,191,0,0.015) 40px, rgba(106,191,0,0.015) 41px); pointer-events: none; }
   .hero::after { content: ''; position: absolute; bottom: -10%; left: 50%; transform: translateX(-50%); width: 700px; height: 350px; background: radial-gradient(ellipse at center, rgba(204,17,0,0.12) 0%, rgba(106,191,0,0.06) 40%, transparent 70%); pointer-events: none; }
@@ -40,19 +40,19 @@
   .hero-title .accent { color: var(--green); }
   .hero-desc { max-width: 500px; color: var(--muted); font-size: clamp(0.9rem, 2vw, 1rem); font-weight: 300; margin-bottom: 2rem; animation: fadeUp 0.9s 0.36s ease both; padding: 0 1rem; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.9s 0.44s ease both; }
- 
+
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.75rem 1.8rem; transition: all 0.2s; cursor: pointer; border: none; }
   .btn-green { background: var(--green); color: #0a0a0a; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); box-shadow: 0 0 20px rgba(106,191,0,0.25); }
   .btn-green:hover { background: #7bd400; box-shadow: 0 0 35px rgba(106,191,0,0.45); transform: translateY(-2px); }
   .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
   .btn-outline:hover { border-color: var(--green); color: var(--green); }
- 
+
   section { padding: 4rem 1.5rem; }
   .container { max-width: 960px; margin: 0 auto; }
   .sec-label { font-family: var(--mono); font-size: 0.68rem; color: var(--green); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .sec-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.3rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.6rem; }
   .sec-rule { width: 48px; height: 3px; background: linear-gradient(90deg, var(--green), var(--red)); margin-bottom: 2.5rem; }
- 
+
   #tools { background: var(--bg2); }
   .tools-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .tool-row { background: var(--surface); display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 1.2rem; padding: 1.4rem 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
@@ -74,7 +74,7 @@
   .tool-version { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
   .tool-row.soon { opacity: 0.45; pointer-events: none; }
   .tag-soon { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); border: 1px dashed var(--border); padding: 0.15rem 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; }
- 
+
   #about { background: var(--bg); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .about-text p { color: #9090a8; font-weight: 300; margin-bottom: 1rem; font-size: 0.95rem; }
@@ -83,14 +83,14 @@
   .stat-box { background: var(--surface); padding: 1.2rem 1rem; text-align: center; }
   .stat-num { font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 900; color: var(--green); display: block; line-height: 1; margin-bottom: 0.3rem; }
   .stat-label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
- 
+
   #contact { background: var(--bg2); }
   .contact-box { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 600px; margin: 0 auto; }
   .contact-desc { color: #9090a8; font-weight: 300; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.8; }
   .contact-items { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
   .contact-item { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
   .contact-item::before { content: '▸'; color: var(--green); }
- 
+
   #donar { background: var(--bg); text-align: center; }
   .donate-box { display: inline-block; background: var(--surface); border: 1px solid var(--border); padding: 2.5rem 3rem; position: relative; max-width: 520px; width: 100%; }
   .donate-box::before, .donate-box::after { content: ''; position: absolute; width: 18px; height: 18px; border-color: var(--green); border-style: solid; }
@@ -98,21 +98,21 @@
   .donate-box::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
   .donate-title { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
   .donate-text { color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1.8rem; }
- 
+
   footer { background: #18181c; border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .footer-logo img { height: 24px; opacity: 0.65; }
   .footer-text { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.8; text-align: right; }
   .footer-text a { color: var(--green); text-decoration: none; }
- 
+
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
- 
+
   @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } .tool-row { grid-template-columns: 129px 1fr; padding: 1.2rem 1rem; } .tool-actions { display: none; } }
   @media (max-width: 600px) { .nav-links .nav-text-link { display: none; } nav { padding: 0.7rem 1rem; } .nav-logo img { height: 26px; max-width: 110px; } }
   @media (max-width: 560px) { .hero { padding: 4rem 1rem 3rem; } section { padding: 3rem 1rem; } .donate-box { padding: 1.8rem 1.2rem; } .footer-text { text-align: left; } .hero-cta { flex-direction: column; align-items: center; } .btn { width: 100%; justify-content: center; } }
 </style>
 </head>
 <body>
- 
+
 <nav>
   <a href="#" class="nav-logo"><img src="titulo%20github.png" alt="Hellfire Tools"></a>
   <ul class="nav-links">
@@ -124,7 +124,7 @@
     <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button></li>
   </ul>
 </nav>
- 
+
 <section class="hero">
   <div class="hero-logo"><img src="titulo%20github.png" alt="Hellfire Tools"></div>
   <div class="hero-icon"><img src="jerohellfire%20cabra%20web.png" alt="Hellfire Tools"></div>
@@ -139,14 +139,14 @@
     <a href="#about" class="btn btn-outline" data-i18n="hero_cta2">Acerca del proyecto</a>
   </div>
 </section>
- 
+
 <section id="tools">
   <div class="container">
     <p class="sec-label" data-i18n="tools_label">// descargas</p>
     <h2 class="sec-title" data-i18n="tools_title">Herramientas</h2>
     <div class="sec-rule"></div>
     <div class="tools-list">
- 
+
       <div class="tool-row">
         <img class="tool-icon" src="hellfire_tools_logo.png" alt="USB Toolkit">
         <div class="tool-info">
@@ -164,7 +164,7 @@
           <span class="tool-version">v1.3 · .zip · Admin req.</span>
         </div>
       </div>
- 
+
       <div class="tool-row">
         <img class="tool-icon" src="mrwhispers.png" alt="MrWhispers">
         <div class="tool-info">
@@ -182,7 +182,7 @@
           <span class="tool-version">v1.0 · .zip · Portable</span>
         </div>
       </div>
- 
+
       <div class="tool-row">
         <img class="tool-icon" src="parrot_lan.png" alt="Parrot LAN">
         <div class="tool-info">
@@ -200,7 +200,7 @@
           <span class="tool-version">v1.1 · .zip · Portable</span>
         </div>
       </div>
- 
+
       <div class="tool-row soon">
         <div style="width:54px;height:54px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🔧</div>
         <div class="tool-info">
@@ -210,18 +210,18 @@
         </div>
         <div class="tool-actions"><span class="tool-version" data-i18n="soon_ver">— próximo lanzamiento</span></div>
       </div>
- 
+
     </div>
   </div>
 </section>
- 
+
 <section id="utilities">
   <div class="container">
     <p class="sec-label" data-i18n="util_label">// utilidades</p>
     <h2 class="sec-title" data-i18n="util_title">Utilidades</h2>
     <div class="sec-rule"></div>
     <div class="tools-list">
- 
+
       <div class="tool-row">
         <img class="tool-icon" src="antmaker_logo.png" alt="AntMaker">
         <div class="tool-info">
@@ -235,11 +235,11 @@
           </div>
         </div>
         <div class="tool-actions">
-          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/antmakerv1.0/Antmaker.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
-          <span class="tool-version">v1.0 · .zip · Portable</span>
+          <a href="https://github.com/JeroHellfire/hellfire-tools/archive/refs/tags/antmakerv2.0.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v2.0 · .zip · Portable</span>
         </div>
       </div>
- 
+
       <div class="tool-row soon">
         <div style="width:54px;height:54px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🔧</div>
         <div class="tool-info">
@@ -249,11 +249,11 @@
         </div>
         <div class="tool-actions"><span class="tool-version" data-i18n="soon_ver">— próximo lanzamiento</span></div>
       </div>
- 
+
     </div>
   </div>
 </section>
- 
+
 <section id="about">
   <div class="container">
     <p class="sec-label" data-i18n="about_label">// proyecto</p>
@@ -274,9 +274,9 @@
     </div>
   </div>
 </section>
- 
- 
- 
+
+
+
 <section id="contact">
   <div class="container">
     <p class="sec-label" data-i18n="contact_label">// contacto</p>
@@ -293,7 +293,7 @@
     </div>
   </div>
 </section>
- 
+
 <section id="donar">
   <div class="container">
     <p class="sec-label" style="text-align:center" data-i18n="donate_label">// apoya el proyecto</p>
@@ -307,7 +307,7 @@
     </div>
   </div>
 </section>
- 
+
 <footer>
   <a href="#" class="footer-logo"><img src="titulo%20github.png" alt="Hellfire Tools"></a>
   <div class="footer-text">
@@ -316,7 +316,7 @@
     <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" data-i18n="footer_donate">Donaciones vía PayPal</a>
   </div>
 </footer>
- 
+
 <script>
 const i18n = {
   es: {
@@ -380,9 +380,9 @@ const i18n = {
     footer_license: 'Free software · personal and educational use', footer_donate: 'Donations via PayPal'
   }
 };
- 
+
 let currentLang = 'es';
- 
+
 function toggleLang() {
   currentLang = currentLang === 'es' ? 'en' : 'es';
   document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
@@ -395,9 +395,8 @@ function toggleLang() {
   document.documentElement.lang = currentLang;
 }
 </script>
- 
+
 <script data-goatcounter="https://hellfiretools.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
- 
+
 </body>
 </html>
- 
