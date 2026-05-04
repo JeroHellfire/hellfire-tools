@@ -79,7 +79,7 @@
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .about-text p { color: #9090a8; font-weight: 300; margin-bottom: 1rem; font-size: 0.95rem; }
   .about-text p strong { color: var(--text); font-weight: 600; }
-  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .stat-box { background: var(--surface); padding: 1.2rem 1rem; text-align: center; }
   .stat-num { font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 900; color: var(--green); display: block; line-height: 1; margin-bottom: 0.3rem; }
   .stat-label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
@@ -104,6 +104,24 @@
   .footer-text { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.8; text-align: right; }
   .footer-text a { color: var(--green); text-decoration: none; }
 
+  #hacking { background: var(--bg); }
+  .hacking-header { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: center; margin-bottom: 3rem; padding: 2rem; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--red); }
+  .hacking-header img { width: 180px; height: 180px; object-fit: contain; filter: drop-shadow(0 4px 20px rgba(204,17,0,0.4)); }
+  .hacking-header-text h3 { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+  .hacking-header-text p { color: #9090a8; font-size: 0.9rem; font-weight: 300; line-height: 1.7; }
+  .legal-warn { font-family: var(--mono); font-size: 0.7rem; color: #ff4422; background: rgba(204,17,0,0.06); border: 1px solid rgba(204,17,0,0.2); border-left: 3px solid var(--red); padding: 0.8rem 1.2rem; margin-bottom: 2.5rem; letter-spacing: 0.05em; }
+  .subsec-title { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .subsec-title::before { content: ''; display: block; width: 30px; height: 2px; background: var(--green); }
+  .script-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 3rem; }
+  .script-row { background: var(--surface); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem; padding: 1.2rem 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
+  .script-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--green); transform: scaleY(0); transform-origin: top; transition: transform 0.3s; }
+  .script-row:hover { background: #333340; }
+  .script-row:hover::before { transform: scaleY(1); }
+  .script-name { font-family: 'Orbitron', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+  .script-desc { color: var(--muted); font-size: 0.82rem; font-weight: 300; line-height: 1.5; }
+  .script-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.4rem; }
+  .tag-purple { border-color: rgba(150,0,255,0.3); color: #aa44ff; background: rgba(150,0,255,0.05); }
+  @media (max-width: 860px) { .hacking-header { grid-template-columns: 1fr; text-align: center; } .hacking-header img { width: 120px; height: 120px; margin: 0 auto; } .script-row { grid-template-columns: 1fr; } .script-row .tool-actions { display: flex; } }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } .tool-row { grid-template-columns: 129px 1fr; padding: 1.2rem 1rem; } .tool-actions { display: none; } }
@@ -119,6 +137,7 @@
     <li class="nav-text-link"><a href="#tools" data-i18n="nav_tools">Herramientas</a></li>
     <li class="nav-text-link"><a href="#about" data-i18n="nav_about">Proyecto</a></li>
     <li class="nav-text-link"><a href="#utilities" data-i18n="nav_utilities">Utilidades</a></li>
+    <li class="nav-text-link"><a href="#hacking" data-i18n="nav_hacking">Hacking</a></li>
     <li class="nav-text-link"><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
     <li class="nav-text-link"><a href="#donar" data-i18n="nav_donate">Donar</a></li>
     <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button></li>
@@ -254,59 +273,12 @@
   </div>
 </section>
 
-<section id="about">
-  <div class="container">
-    <p class="sec-label" data-i18n="about_label">// proyecto</p>
-    <h2 class="sec-title" data-i18n="about_title">Acerca de<br>Hellfire Tools</h2>
-    <div class="sec-rule"></div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p data-i18n="about_p1"><strong>Hellfire Tools</strong> es un proyecto independiente de desarrollo de utilidades portátiles para Windows, orientadas a técnicos, estudiantes de informática y usuarios avanzados.</p>
-        <p data-i18n="about_p2">Todas las herramientas son <strong>software libre para uso personal y educativo</strong>, distribuidas sin instalación y con foco en la simplicidad y la potencia real.</p>
-        <p data-i18n="about_p3">El proyecto está en constante crecimiento. Cada nueva herramienta nace de una necesidad real detectada en el campo.</p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-box"><span class="stat-num">3</span><span class="stat-label" data-i18n="stat_tools">Herramientas</span></div>
-        <div class="stat-box"><span class="stat-num">1</span><span class="stat-label" data-i18n="stat_utils">Utilidades</span></div>
-        <div class="stat-box"><span class="stat-num">100%</span><span class="stat-label">Portable</span></div>
-        <div class="stat-box"><span class="stat-num">Win</span><span class="stat-label">10 / 11 x64</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
-<section id="contact">
-  <div class="container">
-    <p class="sec-label" data-i18n="contact_label">// contacto</p>
-    <h2 class="sec-title" data-i18n="contact_title">¿Tienes algo que decirnos?</h2>
-    <div class="sec-rule"></div>
-    <div class="contact-box">
-      <p class="contact-desc" data-i18n="contact_desc">¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.</p>
-      <img src="contact_email.png" alt="hellfiretools@proton.me" style="max-width:100%;height:auto;">
-      <div class="contact-items">
-        <span class="contact-item" data-i18n="contact_item1">Versiones personalizadas</span>
-        <span class="contact-item" data-i18n="contact_item2">Sugerencias</span>
-        <span class="contact-item" data-i18n="contact_item3">Reporte de errores</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="donar">
-  <div class="container">
-    <p class="sec-label" style="text-align:center" data-i18n="donate_label">// apoya el proyecto</p>
-    <h2 class="sec-title" style="text-align:center;margin-bottom:2rem" data-i18n="donate_title">¿Te ha sido útil?</h2>
-    <div style="display:flex;justify-content:center;">
-      <div class="donate-box">
-        <div class="donate-title" data-i18n="donate_box_title">Apoya Hellfire Tools</div>
-        <p class="donate-text" data-i18n="donate_box_text">Todo el software es gratuito. Si alguna herramienta te ha ahorrado tiempo o solucionado un problema, considera una pequeña donación para mantener el proyecto vivo.</p>
-        <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" class="btn btn-green" data-i18n="donate_btn">❤ Donar vía PayPal</a>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 
 <footer>
   <a href="#" class="footer-logo"><img src="titulo%20github.png" alt="Hellfire Tools"></a>
@@ -320,7 +292,7 @@
 <script>
 const i18n = {
   es: {
-    nav_tools: 'Herramientas', nav_utilities: 'Utilidades', nav_about: 'Proyecto', nav_contact: 'Contacto', nav_donate: 'Donar',
+    nav_tools: 'Herramientas', nav_utilities: 'Utilidades', nav_hacking: 'Hacking', nav_about: 'Proyecto', nav_contact: 'Contacto', nav_donate: 'Donar',
     hero_tagline: '▸ Utilidades portátiles para Windows 10/11',
     hero_title1: 'Herramientas que', hero_accent: 'funcionan', hero_title2: 'cuando más las necesitas.',
     hero_desc: 'Software portable para diagnóstico, recuperación y seguridad. Sin instalación. Sin complicaciones. Solo resultados.',
@@ -336,7 +308,17 @@ const i18n = {
     about_p1: '<strong>Hellfire Tools</strong> es un proyecto independiente de desarrollo de utilidades portátiles para Windows, orientadas a técnicos, estudiantes de informática y usuarios avanzados.',
     about_p2: 'Todas las herramientas son <strong>software libre para uso personal y educativo</strong>, distribuidas sin instalación y con foco en la simplicidad y la potencia real.',
     about_p3: 'El proyecto está en constante crecimiento. Cada nueva herramienta nace de una necesidad real detectada en el campo.',
-    stat_tools: 'Herramientas', stat_utils: 'Utilidades',
+    stat_tools: 'Herramientas', stat_utils: 'Utilidades', stat_kali: 'Kali Scripts',
+    hacking_label: '// hacking tools', hacking_title: 'Hacking Tools',
+    hacking_subtitle: 'Scripts y herramientas para seguridad ofensiva',
+    hacking_desc: 'Colección de scripts para Kali Linux y otras distribuciones orientadas a la seguridad. OSINT, administración, reconocimiento y más. En constante crecimiento.',
+    legal_warn: '⚠ AVISO LEGAL — Estas herramientas son únicamente para fines educativos y de investigación. Úsalas solo sobre sistemas para los que tengas autorización explícita. El autor no se hace responsable del mal uso.',
+    cibervisillo_desc: 'Herramienta OSINT para Kali Linux. Automatiza la búsqueda de información a partir de alias, email, teléfono, dominio o IP. Genera informes en terminal con exportación a TXT o PDF.',
+    hub_desc: 'Script launcher para Kali Linux con pantalla de inicio tipo matrix rain. Detecta y lanza automáticamente scripts Python, Bash, JS, Ruby y PHP desde un menú visual en terminal.',
+    telnet_desc: 'Chat TCP en tiempo real para red local. Conecta equipos de la misma red sin servidor externo. Un equipo actúa como servidor y el resto como clientes. Hasta 10 conexiones simultáneas.',
+    vagops_desc: 'Panel de administración interactivo para Linux Debian/Ubuntu. Menú visual en terminal para mantenimiento, monitoreo, red, seguridad y utilidades.',
+    rastreator_desc: 'Script de rastreo e investigación para Kali Linux.',
+    juanito_desc: 'Script de auditoría y análisis para Kali Linux.',
     util_label: '// utilidades', util_title: 'Utilidades',
     ant_desc: 'Calculadora de costes de impresión 3D. Calcula el precio real de cada impresión teniendo en cuenta material, electricidad, tiempo y margen de beneficio.',
     tag_calc: 'Calculadora', tag_3d: 'Impresión 3D',
@@ -350,7 +332,7 @@ const i18n = {
     footer_license: 'Software libre · uso personal y educativo', footer_donate: 'Donaciones vía PayPal'
   },
   en: {
-    nav_tools: 'Tools', nav_utilities: 'Utilities', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
+    nav_tools: 'Tools', nav_utilities: 'Utilities', nav_hacking: 'Hacking', nav_about: 'Project', nav_contact: 'Contact', nav_donate: 'Donate',
     hero_tagline: '▸ Portable utilities for Windows 10/11',
     hero_title1: 'Tools that', hero_accent: 'work', hero_title2: 'when you need them most.',
     hero_desc: 'Portable software for diagnostics, recovery and security. No installation. No hassle. Just results.',
@@ -366,7 +348,17 @@ const i18n = {
     about_p1: '<strong>Hellfire Tools</strong> is an independent project developing portable utilities for Windows, aimed at technicians, IT students and power users.',
     about_p2: 'All tools are <strong>free software for personal and educational use</strong>, distributed without installation and focused on simplicity and real power.',
     about_p3: 'The project is constantly growing. Every new tool is born from a real need found in the field.',
-    stat_tools: 'Tools', stat_utils: 'Utilities',
+    stat_tools: 'Tools', stat_utils: 'Utilities', stat_kali: 'Kali Scripts',
+    hacking_label: '// hacking tools', hacking_title: 'Hacking Tools',
+    hacking_subtitle: 'Scripts and tools for offensive security',
+    hacking_desc: 'Collection of scripts for Kali Linux and other security-oriented distributions. OSINT, administration, reconnaissance and more. Constantly growing.',
+    legal_warn: '⚠ LEGAL DISCLAIMER — These tools are for educational and research purposes only. Use them only on systems you have explicit authorization for. The author is not responsible for misuse.',
+    cibervisillo_desc: 'OSINT tool for Kali Linux. Automates information gathering from alias, email, phone, domain or IP. Generates terminal reports with TXT or PDF export.',
+    hub_desc: 'Script launcher for Kali Linux with matrix rain intro screen. Automatically detects and runs Python, Bash, JS, Ruby and PHP scripts from a visual terminal menu.',
+    telnet_desc: 'Real-time TCP chat for local network. Connects devices on the same network without external server. One device acts as server, others as clients. Up to 10 simultaneous connections.',
+    vagops_desc: 'Interactive administration panel for Debian/Ubuntu Linux. Visual terminal menu for maintenance, monitoring, network, security and utilities.',
+    rastreator_desc: 'Tracking and investigation script for Kali Linux.',
+    juanito_desc: 'Audit and analysis script for Kali Linux.',
     util_label: '// utilities', util_title: 'Utilities',
     ant_desc: '3D printing cost calculator. Calculate the real price of each print taking into account material, electricity, time and profit margin.',
     tag_calc: 'Calculator', tag_3d: '3D Printing',
@@ -400,3 +392,179 @@ function toggleLang() {
 
 </body>
 </html>
+
+<section id="hacking">
+  <div class="container">
+    <p class="sec-label" data-i18n="hacking_label">// hacking tools</p>
+    <h2 class="sec-title" data-i18n="hacking_title">Hacking Tools</h2>
+    <div class="sec-rule"></div>
+
+    <div class="hacking-header">
+      <img src="cibercabra.png" alt="Hacking Tools">
+      <div class="hacking-header-text">
+        <h3 data-i18n="hacking_subtitle">Scripts y herramientas para seguridad ofensiva</h3>
+        <p data-i18n="hacking_desc">Colección de scripts para Kali Linux y otras distribuciones orientadas a la seguridad. OSINT, administración, reconocimiento y más. En constante crecimiento.</p>
+      </div>
+    </div>
+
+    <div class="legal-warn" data-i18n="legal_warn">⚠ AVISO LEGAL — Estas herramientas son únicamente para fines educativos y de investigación. Úsalas solo sobre sistemas para los que tengas autorización explícita. El autor no se hace responsable del mal uso.</div>
+
+    <div class="subsec-title">Kali Tools</div>
+
+    <div class="script-list">
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">Cibervisillo v1.0</div>
+          <div class="script-desc" data-i18n="cibervisillo_desc">Herramienta OSINT para Kali Linux. Automatiza la búsqueda de información a partir de alias, email, teléfono, dominio o IP. Genera informes en terminal con exportación a TXT o PDF.</div>
+          <div class="script-tags">
+            <span class="tag tag-purple">OSINT</span>
+            <span class="tag tag-green">Recon</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/cibervisillo_v1/CIBERVISILLO.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1.0 · .zip · Bash</span>
+        </div>
+      </div>
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">H3llfire Hub v1.0</div>
+          <div class="script-desc" data-i18n="hub_desc">Script launcher para Kali Linux con pantalla de inicio tipo matrix rain. Detecta y lanza automáticamente scripts Python, Bash, JS, Ruby y PHP desde un menú visual en terminal.</div>
+          <div class="script-tags">
+            <span class="tag tag-green">Launcher</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/untagged-a4a6730c6ab4d9fac4c8/MENU.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1.0 · .zip · Bash</span>
+        </div>
+      </div>
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">Hellfire Telnet v1</div>
+          <div class="script-desc" data-i18n="telnet_desc">Chat TCP en tiempo real para red local. Conecta equipos de la misma red sin servidor externo. Un equipo actúa como servidor y el resto como clientes. Hasta 10 conexiones simultáneas.</div>
+          <div class="script-tags">
+            <span class="tag tag-blue">LAN</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/telnet_v1/TELNET.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1 · .zip · Bash</span>
+        </div>
+      </div>
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">VagOps v1.0</div>
+          <div class="script-desc" data-i18n="vagops_desc">Panel de administración interactivo para Linux Debian/Ubuntu. Menú visual en terminal para mantenimiento, monitoreo, red, seguridad y utilidades. Se relanza automáticamente con sudo si es necesario.</div>
+          <div class="script-tags">
+            <span class="tag tag-orange">Admin</span>
+            <span class="tag tag-green">Monitoreo</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/vagops_v1/VAGOPS.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1.0 · .zip · Bash</span>
+        </div>
+      </div>
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">Rastreator v2</div>
+          <div class="script-desc" data-i18n="rastreator_desc">Script de rastreo e investigación para Kali Linux.</div>
+          <div class="script-tags">
+            <span class="tag tag-purple">Recon</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/rastreator_v2/RASTREATOR.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v2 · .zip · Bash</span>
+        </div>
+      </div>
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">Juanito Casquerías v1</div>
+          <div class="script-desc" data-i18n="juanito_desc">Script de auditoría y análisis para Kali Linux.</div>
+          <div class="script-tags">
+            <span class="tag tag-red">Auditoría</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/juanito_casquerias_v1/JUANITO.CASQUERIAS.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1 · .zip · Bash</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <p class="sec-label" data-i18n="about_label">// proyecto</p>
+    <h2 class="sec-title" data-i18n="about_title">Acerca de<br>Hellfire Tools</h2>
+    <div class="sec-rule"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i18n="about_p1"><strong>Hellfire Tools</strong> es un proyecto independiente de desarrollo de utilidades portátiles para Windows, orientadas a técnicos, estudiantes de informática y usuarios avanzados.</p>
+        <p data-i18n="about_p2">Todas las herramientas son <strong>software libre para uso personal y educativo</strong>, distribuidas sin instalación y con foco en la simplicidad y la potencia real.</p>
+        <p data-i18n="about_p3">El proyecto está en constante crecimiento. Cada nueva herramienta nace de una necesidad real detectada en el campo.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box"><span class="stat-num">3</span><span class="stat-label" data-i18n="stat_tools">Herramientas</span></div>
+        <div class="stat-box"><span class="stat-num">1</span><span class="stat-label" data-i18n="stat_utils">Utilidades</span></div>
+        <div class="stat-box"><span class="stat-num">6</span><span class="stat-label" data-i18n="stat_kali">Kali Scripts</span></div>
+        <div class="stat-box"><span class="stat-num">100%</span><span class="stat-label">Portable</span></div>
+        <div class="stat-box"><span class="stat-num">Win</span><span class="stat-label">10 / 11 x64</span></div>
+        <div class="stat-box"><span class="stat-num">Kali</span><span class="stat-label">Linux</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <p class="sec-label" data-i18n="contact_label">// contacto</p>
+    <h2 class="sec-title" data-i18n="contact_title">¿Tienes algo que decirnos?</h2>
+    <div class="sec-rule"></div>
+    <div class="contact-box">
+      <p class="contact-desc" data-i18n="contact_desc">¿Quieres una versión personalizada de alguna herramienta? ¿Tienes una sugerencia o has encontrado un error? Escríbenos, leemos todos los mensajes.</p>
+      <img src="contact_email.png" alt="hellfiretools@proton.me" style="max-width:100%;height:auto;">
+      <div class="contact-items">
+        <span class="contact-item" data-i18n="contact_item1">Versiones personalizadas</span>
+        <span class="contact-item" data-i18n="contact_item2">Sugerencias</span>
+        <span class="contact-item" data-i18n="contact_item3">Reporte de errores</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="donar">
+  <div class="container">
+    <p class="sec-label" style="text-align:center" data-i18n="donate_label">// apoya el proyecto</p>
+    <h2 class="sec-title" style="text-align:center;margin-bottom:2rem" data-i18n="donate_title">¿Te ha sido útil?</h2>
+    <div style="display:flex;justify-content:center;">
+      <div class="donate-box">
+        <div class="donate-title" data-i18n="donate_box_title">Apoya Hellfire Tools</div>
+        <p class="donate-text" data-i18n="donate_box_text">Todo el software es gratuito. Si alguna herramienta te ha ahorrado tiempo o solucionado un problema, considera una pequeña donación para mantener el proyecto vivo.</p>
+        <a href="https://www.paypal.com/donate?hosted_button_id=MC2HPBWPY2ELC" target="_blank" class="btn btn-green" data-i18n="donate_btn">❤ Donar vía PayPal</a>
+      </div>
+    </div>
+  </div>
+</section>
