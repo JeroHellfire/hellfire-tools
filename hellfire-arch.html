@@ -339,12 +339,8 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-logo">
-    <img src="hellfire_arch_banner.png" alt="Hellfire Arch">
-  </div>
-  <div class="hero-mascot">
-    <img src="hellfire_arch_cabra.png" alt="Hellfire Arch">
-  </div>
+  <div class="hero-logo"><img src="hellfire_arch_banner.png" alt="Hellfire Arch" style="height:clamp(70px,12vw,130px);max-width:90vw;filter:drop-shadow(0 0 24px rgba(136,0,204,0.5));"></div>
+
   <div class="hero-badge">▸ Distribución Linux · Pentesting · OSINT · CTF</div>
   <h1 class="hero-title">
     <span class="g">Hellfire</span> <span class="p">Arch</span>
@@ -430,57 +426,48 @@
     <h2 class="sec-title">Scripts incluidos</h2>
     <div class="sec-rule"></div>
     <div class="legal-warn">⚠ AVISO LEGAL — Hellfire Arch es una herramienta educativa y de investigación. Las herramientas ofensivas deben usarse únicamente en sistemas propios o con autorización escrita explícita. El uso no autorizado es ilegal y el autor no se hace responsable del mal uso.</div>
-    <table class="tools-table">
-      <thead>
-        <tr>
-          <th>Script</th>
-          <th>Nombre</th>
-          <th>Herramientas principales</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="tool-script">anubis.sh</span></td>
-          <td><div class="tool-name">Anubis</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Mantenimiento</div></td>
-          <td><span class="tool-apps">pacman · yay · paccache · reflector · sensors · journalctl · nftables</span></td>
-        </tr>
-        <tr>
-          <td><span class="tool-script">hyakume.sh</span></td>
-          <td><div class="tool-name">Hyakume</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">OSINT Web</div></td>
-          <td><span class="tool-apps">ExifTool · metagoofil · theHarvester · WhatWeb · WHOIS · crt.sh</span></td>
-        </tr>
-        <tr>
-          <td><span class="tool-script">izanami.sh</span></td>
-          <td><div class="tool-name">Izanami</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">OSINT Social</div></td>
-          <td><span class="tool-apps">Sherlock · Maigret · Holehe · H8mail · Ignorant · phoneinfoga · Gitleaks</span></td>
-        </tr>
-        <tr>
-          <td><span class="tool-script">fenrir.sh</span></td>
-          <td><div class="tool-name">Fenrir</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Contraseñas</div></td>
-          <td><span class="tool-apps">John the Ripper · Hashcat · hashid · haiti · cupp · crunch · *2john</span></td>
-        </tr>
-        <tr>
-          <td><span class="tool-script">raijin.sh</span></td>
-          <td><div class="tool-name">Raijin</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Web Hacking</div></td>
-          <td><span class="tool-apps">Nikto · Nuclei · Gobuster · FFUF · Wapiti · testssl · wafw00f · arjun</span></td>
-        </tr>
-        <tr>
-          <td><span class="tool-script">njord.sh</span></td>
-          <td><div class="tool-name">Njord</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Redes</div></td>
-          <td><span class="tool-apps">Nmap · Masscan · RustScan · netdiscover · Bettercap · tcpdump · tshark</span></td>
-        </tr>
-        <tr>
-          <td><span class="tool-script">tanuki.sh</span></td>
-          <td><div class="tool-name">Tanuki</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Esteganografía</div></td>
-          <td><span class="tool-apps">Steghide · Stegcracker · Binwalk · Zsteg · Foremost · strings · xxd</span></td>
-        </tr>
-        <tr>
-          <td><span class="tool-script">kitsune.sh</span></td>
-          <td><div class="tool-name">Kitsune</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Explotación</div></td>
-          <td><span class="tool-apps">SQLmap · Dalfox · Hydra · WPScan · Commix · mitmproxy · Burp Suite</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);">
+      <div style="background:var(--surface);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">anubis.sh</span>
+        <span style="color:var(--text);font-weight:600;">Anubis</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">Mantenimiento del sistema</span>
+      </div>
+      <div style="background:var(--bg3);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">hyakume.sh</span>
+        <span style="color:var(--text);font-weight:600;">Hyakume</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">OSINT Web</span>
+      </div>
+      <div style="background:var(--surface);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">izanami.sh</span>
+        <span style="color:var(--text);font-weight:600;">Izanami</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">OSINT Social</span>
+      </div>
+      <div style="background:var(--bg3);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">fenrir.sh</span>
+        <span style="color:var(--text);font-weight:600;">Fenrir</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">Contraseñas y hashes</span>
+      </div>
+      <div style="background:var(--surface);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">raijin.sh</span>
+        <span style="color:var(--text);font-weight:600;">Raijin</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">Web Hacking</span>
+      </div>
+      <div style="background:var(--bg3);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">njord.sh</span>
+        <span style="color:var(--text);font-weight:600;">Njord</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">Análisis de redes</span>
+      </div>
+      <div style="background:var(--surface);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">tanuki.sh</span>
+        <span style="color:var(--text);font-weight:600;">Tanuki</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">Esteganografía</span>
+      </div>
+      <div style="background:var(--bg3);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem;">
+        <span style="font-family:var(--mono);font-size:0.75rem;color:#6abf00;width:110px;">kitsune.sh</span>
+        <span style="color:var(--text);font-weight:600;">Kitsune</span>
+        <span style="font-family:var(--mono);font-size:0.65rem;color:#6a6a90;margin-left:0.5rem;">Explotación web</span>
+      </div>
+    </div>
   </div>
 </section>
 
