@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hellfire Arch v1.1 — Garuda Linux + BlackArch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:   #6abf00;
+    --purple:  #8800cc;
+    --purple2: #aa33ff;
+    --purple3: #6600aa;
+    --bg:      #080810;
+    --bg2:     #0e0e1a;
+    --bg3:     #13131f;
+    --surface: #1a1a28;
+    --border:  #2a2a40;
+    --text:    #e4e4f0;
+    --muted:   #6a6a90;
+    --mono:    'Share Tech Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Exo 2', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* grid overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(106,191,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(106,191,0,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(8,8,16,0.95); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.8rem 2.5rem;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 1rem; text-decoration: none;
+  }
+  .nav-logo img { height: 32px; }
+  .nav-back {
+    font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+    text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .nav-back:hover { color: var(--green); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+
+  /* purple/green radial glow */
+  .hero::after {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse,
+      rgba(136,0,204,0.15) 0%,
+      rgba(106,191,0,0.08) 40%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .hero-logo {
+    margin-bottom: 2rem;
+    animation: fadeUp 1s ease both;
+    position: relative; z-index: 1;
+  }
+  .hero-logo img { height: clamp(60px, 10vw, 100px); max-width: 90vw; }
+
+  .hero-mascot {
+    margin-bottom: 2rem;
+    animation: fadeUp 1s 0.1s ease both;
+    position: relative; z-index: 1;
+  }
+  .hero-mascot img {
+    height: clamp(180px, 30vw, 280px);
+    filter: drop-shadow(0 0 40px rgba(136,0,204,0.5));
+    transition: transform 0.5s;
+  }
+  .hero-mascot img:hover { transform: scale(1.04); }
+
+  .hero-badge {
+    font-family: var(--mono); font-size: 0.72rem;
+    color: var(--purple2); letter-spacing: 0.2em; text-transform: uppercase;
+    background: rgba(136,0,204,0.08); border: 1px solid rgba(136,0,204,0.25);
+    padding: 0.3rem 1.2rem; display: inline-block; margin-bottom: 1.2rem;
+    animation: fadeUp 1s 0.2s ease both; position: relative; z-index: 1;
+  }
+
+  .hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 900; letter-spacing: 0.04em; line-height: 1.1;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 1s 0.3s ease both; position: relative; z-index: 1;
+  }
+  .hero-title .g { color: var(--green); }
+  .hero-title .p { color: var(--purple2); }
+
+  .hero-version {
+    font-family: var(--mono); font-size: 0.8rem; color: var(--muted);
+    letter-spacing: 0.15em; margin-bottom: 1.5rem;
+    animation: fadeUp 1s 0.35s ease both; position: relative; z-index: 1;
+  }
+
+  .hero-desc {
+    max-width: 600px; color: var(--muted); font-size: 1rem;
+    font-weight: 300; margin-bottom: 2.5rem; line-height: 1.8;
+    animation: fadeUp 1s 0.4s ease both; position: relative; z-index: 1;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 1s 0.5s ease both; position: relative; z-index: 1;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Exo 2', sans-serif; font-weight: 700;
+    font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; padding: 0.8rem 2rem;
+    transition: all 0.2s; cursor: pointer; border: none;
+  }
+  .btn-purple {
+    background: var(--purple); color: #fff;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    box-shadow: 0 0 20px rgba(136,0,204,0.35);
+  }
+  .btn-purple:hover { background: var(--purple2); box-shadow: 0 0 35px rgba(170,51,255,0.5); transform: translateY(-2px); }
+  .btn-green {
+    background: var(--green); color: #0a0a0a;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    box-shadow: 0 0 20px rgba(106,191,0,0.25);
+  }
+  .btn-green:hover { background: #7bd400; box-shadow: 0 0 35px rgba(106,191,0,0.45); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--text); border: 1px solid var(--border);
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .btn-outline:hover { border-color: var(--purple2); color: var(--purple2); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; position: relative; z-index: 1; }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .sec-label { font-family: var(--mono); font-size: 0.68rem; color: var(--purple2); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .sec-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.6rem; }
+  .sec-rule { width: 48px; height: 3px; background: linear-gradient(90deg, var(--green), var(--purple)); margin-bottom: 3rem; }
+
+  /* SPECS */
+  #specs { background: var(--bg2); }
+  .specs-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+  }
+  .spec-row {
+    background: var(--surface);
+    display: grid; grid-template-columns: 160px 1fr;
+    align-items: center; gap: 1rem; padding: 1rem 1.5rem;
+    transition: background 0.2s;
+  }
+  .spec-row:hover { background: #1e1e30; }
+  .spec-key {
+    font-family: var(--mono); font-size: 0.72rem; color: var(--purple2);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .spec-val { color: var(--text); font-size: 0.95rem; font-weight: 400; }
+
+  /* CREDENTIALS */
+  .creds-box {
+    background: rgba(136,0,204,0.06);
+    border: 1px solid rgba(136,0,204,0.2);
+    border-left: 3px solid var(--purple);
+    padding: 1.5rem 2rem; margin-top: 2rem;
+    font-family: var(--mono); font-size: 0.82rem;
+  }
+  .creds-title { color: var(--purple2); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; font-size: 0.72rem; }
+  .cred-row { display: flex; gap: 2rem; padding: 0.3rem 0; border-bottom: 1px solid rgba(136,0,204,0.1); }
+  .cred-row:last-child { border-bottom: none; }
+  .cred-k { color: var(--muted); width: 100px; }
+  .cred-v { color: var(--green); }
+
+  /* SCREENSHOTS */
+  #screenshots { background: var(--bg); }
+  .screenshots-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .screenshot-card {
+    position: relative; overflow: hidden;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .screenshot-card:hover { border-color: var(--purple2); transform: translateY(-3px); }
+  .screenshot-card img { width: 100%; display: block; }
+  .screenshot-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(8,8,16,0.85); backdrop-filter: blur(8px);
+    padding: 0.6rem 1rem;
+    font-family: var(--mono); font-size: 0.68rem; color: var(--purple2);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* TOOLS SUITE */
+  #tools { background: var(--bg2); }
+  .tools-table {
+    width: 100%; border-collapse: collapse;
+    border: 1px solid var(--border);
+  }
+  .tools-table th {
+    background: var(--surface);
+    font-family: var(--mono); font-size: 0.68rem; color: var(--purple2);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.8rem 1.2rem; text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .tools-table td {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid rgba(42,42,64,0.5);
+    font-size: 0.88rem; vertical-align: top;
+  }
+  .tools-table tr { background: var(--bg3); transition: background 0.2s; }
+  .tools-table tr:hover { background: var(--surface); }
+  .tool-script { font-family: var(--mono); color: var(--green); font-size: 0.78rem; }
+  .tool-name { font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+  .tool-apps { color: var(--muted); font-size: 0.78rem; line-height: 1.6; }
+
+  /* LEGAL */
+  .legal-warn {
+    font-family: var(--mono); font-size: 0.72rem; color: #ff4422;
+    background: rgba(204,17,0,0.06); border: 1px solid rgba(204,17,0,0.2);
+    border-left: 3px solid #cc1100; padding: 1rem 1.5rem;
+    margin-bottom: 3rem; letter-spacing: 0.04em; line-height: 1.8;
+  }
+
+  /* HUB */
+  #hub { background: var(--bg); }
+  .hub-box {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 2rem; align-items: start;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--purple); padding: 2rem;
+  }
+  .hub-box img { width: 140px; height: 140px; object-fit: contain; filter: drop-shadow(0 0 20px rgba(136,0,204,0.4)); }
+  .hub-title { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--purple2); margin-bottom: 0.8rem; }
+  .hub-desc { color: #9090b8; font-size: 0.9rem; font-weight: 300; line-height: 1.8; margin-bottom: 1.2rem; }
+  .hub-steps { list-style: none; }
+  .hub-steps li {
+    color: var(--muted); font-size: 0.88rem; padding: 0.3rem 0;
+    display: flex; align-items: flex-start; gap: 0.8rem;
+  }
+  .hub-steps li span.num {
+    font-family: var(--mono); color: var(--green); font-size: 0.75rem;
+    background: rgba(106,191,0,0.1); padding: 0.1rem 0.5rem;
+    flex-shrink: 0; margin-top: 0.1rem;
+  }
+
+  /* DOWNLOAD */
+  #download { background: var(--bg2); text-align: center; }
+  .download-box {
+    display: inline-block; background: var(--surface);
+    border: 1px solid var(--border); padding: 3rem 4rem;
+    position: relative; max-width: 600px; width: 100%;
+  }
+  .download-box::before, .download-box::after {
+    content: ''; position: absolute; width: 20px; height: 20px;
+    border-color: var(--purple2); border-style: solid;
+  }
+  .download-box::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .download-box::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+  .download-title { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .download-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 2rem; }
+  .download-meta { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+  .download-meta span { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+  .download-meta span::before { content: '▸ '; color: var(--purple2); }
+  .download-note { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-top: 1.2rem; line-height: 1.8; }
+
+  /* FOOTER */
+  footer {
+    background: #05050d; border-top: 1px solid var(--border);
+    padding: 2rem; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo img { height: 24px; opacity: 0.6; }
+  .footer-text { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.8; text-align: right; }
+  .footer-text a { color: var(--purple2); text-decoration: none; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 860px) {
+    .specs-grid { grid-template-columns: 1fr; }
+    .screenshots-grid { grid-template-columns: 1fr; }
+    .hub-box { grid-template-columns: 1fr; text-align: center; }
+    .hub-box img { margin: 0 auto; }
+    .download-box { padding: 2rem 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 0.8rem 1rem; }
+    .spec-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    .tools-table th:last-child, .tools-table td:last-child { display: none; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="titulo%20github.png" alt="Hellfire Tools">
+  </a>
+  <a href="index.html" class="nav-back">← Volver a Hellfire Tools</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo">
+    <img src="hellfire_arch_banner.png" alt="Hellfire Arch">
+  </div>
+  <div class="hero-mascot">
+    <img src="hellfire_arch_cabra.png" alt="Hellfire Arch">
+  </div>
+  <div class="hero-badge">▸ Distribución Linux · Pentesting · OSINT · CTF</div>
+  <h1 class="hero-title">
+    <span class="g">Hellfire</span> <span class="p">Arch</span>
+  </h1>
+  <div class="hero-version">// v1.1 · Garuda Linux Dr460nized + BlackArch · KDE Plasma</div>
+  <p class="hero-desc">
+    Distribución personalizada de Linux orientada a ciberseguridad, OSINT, hacking web, análisis de redes y CTF. Construida sobre Garuda Linux Dr460nized con más de 2800 herramientas de BlackArch integradas y lista para usar.
+  </p>
+  <div class="hero-cta">
+    <a href="#download" class="btn btn-purple">⬇ Descargar</a>
+    <a href="#tools" class="btn btn-green">Ver herramientas</a>
+    <a href="#specs" class="btn btn-outline">Especificaciones</a>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section id="specs">
+  <div class="container">
+    <p class="sec-label">// especificaciones</p>
+    <h2 class="sec-title">Ficha técnica</h2>
+    <div class="sec-rule"></div>
+
+    <div class="specs-grid">
+      <div class="spec-row"><span class="spec-key">Versión</span><span class="spec-val">v1.1</span></div>
+      <div class="spec-row"><span class="spec-key">Base</span><span class="spec-val">Garuda Linux Dr460nized</span></div>
+      <div class="spec-row"><span class="spec-key">Escritorio</span><span class="spec-val">KDE Plasma</span></div>
+      <div class="spec-row"><span class="spec-key">Repositorios</span><span class="spec-val">Arch + AUR + BlackArch + Chaotic-AUR</span></div>
+      <div class="spec-row"><span class="spec-key">Herramientas</span><span class="spec-val">+2800 (BlackArch)</span></div>
+      <div class="spec-row"><span class="spec-key">Perfil</span><span class="spec-val">OSINT · Web Hacking · Redes · CTF</span></div>
+      <div class="spec-row"><span class="spec-key">Formato</span><span class="spec-val">OVA para VirtualBox</span></div>
+      <div class="spec-row"><span class="spec-key">RAM recomendada</span><span class="spec-val">4 GB mínimo</span></div>
+      <div class="spec-row"><span class="spec-key">CPU recomendada</span><span class="spec-val">2 núcleos mínimo</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section id="screenshots">
+  <div class="container">
+    <p class="sec-label">// capturas</p>
+    <h2 class="sec-title">Aspecto visual</h2>
+    <div class="sec-rule"></div>
+    <div class="screenshots-grid">
+      <div class="screenshot-card">
+        <img src="arch_login.jpg" alt="Pantalla de login">
+        <div class="screenshot-label">Pantalla de inicio de sesión</div>
+      </div>
+      <div class="screenshot-card">
+        <img src="arch_desktop.jpg" alt="Escritorio KDE Plasma">
+        <div class="screenshot-label">Escritorio KDE Plasma — Dr460nized</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HUB -->
+<section id="hub">
+  <div class="container">
+    <p class="sec-label">// launcher</p>
+    <h2 class="sec-title">Hellfire Arch Hub</h2>
+    <div class="sec-rule"></div>
+    <div class="hub-box">
+      <img src="icono_launcher1.png" alt="Hellfire Arch Hub">
+      <div>
+        <div class="hub-title">Launcher central de herramientas</div>
+        <p class="hub-desc">El Hellfire Arch Hub es el punto de entrada a todas las herramientas. Accede desde el icono de la barra del escritorio — la cabeza de macho cabrío verde/morado. Al abrirlo aparece una pantalla de bienvenida con lluvia de código matrix y el ASCII art de Hellfire Arch.</p>
+        <ol class="hub-steps">
+          <li><span class="num">01</span> Haz clic en el icono de la barra del escritorio</li>
+          <li><span class="num">02</span> Espera la animación de bienvenida y pulsa ENTER</li>
+          <li><span class="num">03</span> Escribe el número del script que quieres lanzar</li>
+          <li><span class="num">04</span> Para volver al menú pulsa ENTER cuando aparezca el prompt</li>
+          <li><span class="num">05</span> Opción 0 o Q para salir</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS SUITE -->
+<section id="tools">
+  <div class="container">
+    <p class="sec-label">// suite de herramientas</p>
+    <h2 class="sec-title">Scripts incluidos</h2>
+    <div class="sec-rule"></div>
+    <div class="legal-warn">⚠ AVISO LEGAL — Hellfire Arch es una herramienta educativa y de investigación. Las herramientas ofensivas deben usarse únicamente en sistemas propios o con autorización escrita explícita. El uso no autorizado es ilegal y el autor no se hace responsable del mal uso.</div>
+    <table class="tools-table">
+      <thead>
+        <tr>
+          <th>Script</th>
+          <th>Nombre</th>
+          <th>Herramientas principales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tool-script">anubis.sh</span></td>
+          <td><div class="tool-name">Anubis</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Mantenimiento</div></td>
+          <td><span class="tool-apps">pacman · yay · paccache · reflector · sensors · journalctl · nftables</span></td>
+        </tr>
+        <tr>
+          <td><span class="tool-script">hyakume.sh</span></td>
+          <td><div class="tool-name">Hyakume</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">OSINT Web</div></td>
+          <td><span class="tool-apps">ExifTool · metagoofil · theHarvester · WhatWeb · WHOIS · crt.sh</span></td>
+        </tr>
+        <tr>
+          <td><span class="tool-script">izanami.sh</span></td>
+          <td><div class="tool-name">Izanami</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">OSINT Social</div></td>
+          <td><span class="tool-apps">Sherlock · Maigret · Holehe · H8mail · Ignorant · phoneinfoga · Gitleaks</span></td>
+        </tr>
+        <tr>
+          <td><span class="tool-script">fenrir.sh</span></td>
+          <td><div class="tool-name">Fenrir</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Contraseñas</div></td>
+          <td><span class="tool-apps">John the Ripper · Hashcat · hashid · haiti · cupp · crunch · *2john</span></td>
+        </tr>
+        <tr>
+          <td><span class="tool-script">raijin.sh</span></td>
+          <td><div class="tool-name">Raijin</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Web Hacking</div></td>
+          <td><span class="tool-apps">Nikto · Nuclei · Gobuster · FFUF · Wapiti · testssl · wafw00f · arjun</span></td>
+        </tr>
+        <tr>
+          <td><span class="tool-script">njord.sh</span></td>
+          <td><div class="tool-name">Njord</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Redes</div></td>
+          <td><span class="tool-apps">Nmap · Masscan · RustScan · netdiscover · Bettercap · tcpdump · tshark</span></td>
+        </tr>
+        <tr>
+          <td><span class="tool-script">tanuki.sh</span></td>
+          <td><div class="tool-name">Tanuki</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Esteganografía</div></td>
+          <td><span class="tool-apps">Steghide · Stegcracker · Binwalk · Zsteg · Foremost · strings · xxd</span></td>
+        </tr>
+        <tr>
+          <td><span class="tool-script">kitsune.sh</span></td>
+          <td><div class="tool-name">Kitsune</div><div style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">Explotación</div></td>
+          <td><span class="tool-apps">SQLmap · Dalfox · Hydra · WPScan · Commix · mitmproxy · Burp Suite</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+  <div class="container">
+    <p class="sec-label" style="text-align:center">// descarga</p>
+    <h2 class="sec-title" style="text-align:center;margin-bottom:2rem">Descarga Hellfire Arch</h2>
+    <div style="display:flex;justify-content:center;">
+      <div class="download-box">
+        <div class="download-title">Hellfire Arch v1.1</div>
+        <div class="download-sub">Garuda Linux Dr460nized + BlackArch · KDE Plasma</div>
+        <div class="download-meta">
+          <span>OVA · VirtualBox</span>
+          <span>KDE Plasma</span>
+          <span>+2800 tools</span>
+          <span>Arch + BlackArch</span>
+        </div>
+        <a href="https://drive.proton.me/urls/9AHH0EJZGC#MKG1x6wODSQ7" target="_blank" class="btn btn-purple">⬇ Descargar desde Proton Drive</a>
+        <div class="download-note">
+          <br>
+          Cambia las credenciales por defecto tras el primer inicio de sesión
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="titulo%20github.png" alt="Hellfire Tools">
+  </a>
+  <div class="footer-text">
+    © 2026 Hellfire Tools · jerohellfire.github.io/hellfire-tools<br>
+    Hellfire Arch v1.1 · Garuda Linux + BlackArch · by jerohellfire<br>
+    <a href="index.html">← Volver a Hellfire Tools</a>
+  </div>
+</footer>
+
+<script data-goatcounter="https://hellfiretools.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>
