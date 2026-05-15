@@ -79,7 +79,7 @@
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
   .about-text p { color: #9090a8; font-weight: 300; margin-bottom: 1rem; font-size: 0.95rem; }
   .about-text p strong { color: var(--text); font-weight: 600; }
-  .about-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .stat-box { background: var(--surface); padding: 1.2rem 1rem; text-align: center; }
   .stat-num { font-family: 'Orbitron', sans-serif; font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 900; color: var(--green); display: block; line-height: 1; margin-bottom: 0.3rem; }
   .stat-label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
@@ -451,14 +451,50 @@
 
     <div class="subsec-title" style="margin-top:2rem;">Arch Tools</div>
     <div class="script-list">
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">Anubis</div>
+          <div class="script-desc" data-i18n="anubis_desc">Mantenimiento completo para Garuda/Arch Linux. Actualización del sistema, limpieza de caché, monitoreo de CPU/RAM/disco, análisis de red, logs de seguridad y utilidades del sistema.</div>
+          <div class="script-tags">
+            <span class="tag tag-orange" data-i18n="tag_maintenance">Mantenimiento</span>
+            <span class="tag tag-green" data-i18n="tag_monitoring">Monitoreo</span>
+            <span class="tag">Arch Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/anubis1/anubis.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1.0 · .zip · Bash</span>
+        </div>
+      </div>
+
+      <div class="script-row">
+        <div class="script-info">
+          <div class="script-name">Fenrir</div>
+          <div class="script-desc" data-i18n="fenrir_desc">Cracking de hashes con John the Ripper y Hashcat. Detección automática del tipo de hash, ataques por diccionario, máscara, reglas e híbrido. Generación de wordlists con CUPP y Crunch.</div>
+          <div class="script-tags">
+            <span class="tag tag-red" data-i18n="tag_cracking">Cracking</span>
+            <span class="tag tag-purple">Hashcat</span>
+            <span class="tag">Arch Linux</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <a href="https://github.com/JeroHellfire/hellfire-tools/releases/download/FENRIR1/fenrir.zip" class="btn-dl" data-i18n="btn_download">⬇ Descargar</a>
+          <span class="tool-version">v1.0 · .zip · Bash</span>
+        </div>
+      </div>
+
       <div class="script-row soon">
         <div class="script-info">
           <div class="script-name" data-i18n="soon_title">Próximamente...</div>
-          <div class="script-desc" data-i18n="arch_soon_desc">Herramientas y scripts para Arch Linux y distribuciones basadas en Arch. En desarrollo.</div>
+          <div class="script-desc" data-i18n="arch_soon_desc">Más herramientas para Arch Linux en desarrollo.</div>
           <div class="script-tags"><span class="tag-soon" data-i18n="tag_soon">En desarrollo</span></div>
         </div>
         <div class="tool-actions"><span class="tool-version" data-i18n="soon_ver">— próximo lanzamiento</span></div>
       </div>
+
     </div>
   </div>
 </section>
@@ -478,9 +514,11 @@
         <div class="stat-box"><span class="stat-num">3</span><span class="stat-label" data-i18n="stat_tools">Herramientas</span></div>
         <div class="stat-box"><span class="stat-num">2</span><span class="stat-label" data-i18n="stat_utils">Utilidades</span></div>
         <div class="stat-box"><span class="stat-num">6</span><span class="stat-label" data-i18n="stat_kali">Kali Scripts</span></div>
+        <div class="stat-box"><span class="stat-num">2</span><span class="stat-label" data-i18n="stat_arch">Arch Scripts</span></div>
         <div class="stat-box"><span class="stat-num">100%</span><span class="stat-label">Portable</span></div>
         <div class="stat-box"><span class="stat-num">Win</span><span class="stat-label">10 / 11 x64</span></div>
         <div class="stat-box"><span class="stat-num">Kali</span><span class="stat-label">Linux</span></div>
+        <div class="stat-box"><span class="stat-num" style="font-size:1rem;">Garuda</span><span class="stat-label">BlackArch</span></div>
       </div>
     </div>
   </div>
@@ -545,7 +583,7 @@ const i18n = {
     about_p1: '<strong>Hellfire Tools</strong> es un proyecto independiente de software para técnicos e investigadores de seguridad. Herramientas Windows, herramientas para Kali Linux, herramientas para Arch Linux y utilidades. Construido desde la experiencia real.',
     about_p2: 'Todas las herramientas son <strong>software libre para uso personal y educativo</strong>, distribuidas sin instalación y con foco en la simplicidad y la potencia real.',
     about_p3: 'El proyecto está en constante crecimiento. Cada nueva herramienta nace de una necesidad real detectada en el campo.',
-    stat_tools: 'Herramientas', stat_utils: 'Utilidades', stat_kali: 'Kali Scripts',
+    stat_tools: 'Herramientas', stat_utils: 'Utilidades', stat_kali: 'Kali Scripts', stat_arch: 'Arch Scripts',
     arch_banner_badge: '// Distribución Linux · Pentesting · OSINT · CTF',
     arch_banner_desc: 'Distribución personalizada de Linux orientada a pentesting, OSINT y CTF. Basada en Garuda Linux Dr460nized con KDE Plasma y más de 2800 herramientas de BlackArch listas para usar.',
     arch_banner_btn: 'Ver Hellfire Arch →',
@@ -559,6 +597,9 @@ const i18n = {
     vagops_desc: 'Panel de administración interactivo para Linux Debian/Ubuntu. Menú visual en terminal para mantenimiento, monitoreo, red, seguridad y utilidades.',
     rastreator_desc: 'Script de rastreo e investigación para Kali Linux.',
     juanito_desc: 'Script de auditoría y análisis para Kali Linux.',
+    anubis_desc: 'Mantenimiento completo para Garuda/Arch Linux. Actualización del sistema, limpieza de caché, monitoreo de CPU/RAM/disco, análisis de red, logs de seguridad y utilidades del sistema.',
+    fenrir_desc: 'Cracking de hashes con John the Ripper y Hashcat. Detección automática del tipo de hash, ataques por diccionario, máscara, reglas e híbrido. Generación de wordlists con CUPP y Crunch.',
+    tag_maintenance: 'Mantenimiento', tag_monitoring: 'Monitoreo', tag_cracking: 'Cracking',
     arch_soon_desc: 'Herramientas y scripts para Arch Linux y distribuciones basadas en Arch. En desarrollo.',
     bashdojo_desc: 'Entrenador de comandos Bash para terminal. Lee un comando, entiende qué hace y escríbelo 3 veces de memoria. Anti-trampa integrado. 61 comandos en 8 niveles.',
     tag_training: 'Aprendizaje',
@@ -591,7 +632,7 @@ const i18n = {
     about_p1: '<strong>Hellfire Tools</strong> is an independent software project for technicians and security researchers. Windows tools, Kali Linux tools, Arch Linux tools and utilities. Built from real experience.',
     about_p2: 'All tools are <strong>free software for personal and educational use</strong>, distributed without installation and focused on simplicity and real power.',
     about_p3: 'The project is constantly growing. Every new tool is born from a real need found in the field.',
-    stat_tools: 'Tools', stat_utils: 'Utilities', stat_kali: 'Kali Scripts',
+    stat_tools: 'Tools', stat_utils: 'Utilities', stat_kali: 'Kali Scripts', stat_arch: 'Arch Scripts',
     arch_banner_badge: '// Distribución Linux · Pentesting · OSINT · CTF',
     arch_banner_desc: 'Distribución personalizada de Linux orientada a pentesting, OSINT y CTF. Basada en Garuda Linux Dr460nized con KDE Plasma y más de 2800 herramientas de BlackArch listas para usar.',
     arch_banner_btn: 'Ver Hellfire Arch →',
@@ -608,6 +649,9 @@ const i18n = {
     vagops_desc: 'Interactive administration panel for Debian/Ubuntu Linux. Visual terminal menu for maintenance, monitoring, network, security and utilities.',
     rastreator_desc: 'Tracking and investigation script for Kali Linux.',
     juanito_desc: 'Audit and analysis script for Kali Linux.',
+    anubis_desc: 'Complete maintenance for Garuda/Arch Linux. System updates, cache cleanup, CPU/RAM/disk monitoring, network analysis, security logs and system utilities.',
+    fenrir_desc: 'Hash cracking with John the Ripper and Hashcat. Automatic hash type detection, dictionary, mask, rules and hybrid attacks. Wordlist generation with CUPP and Crunch.',
+    tag_maintenance: 'Maintenance', tag_monitoring: 'Monitoring', tag_cracking: 'Cracking',
     arch_soon_desc: 'Tools and scripts for Arch Linux and Arch-based distributions. In development.',
     bashdojo_desc: 'Bash command trainer for terminal. Read a command, understand what it does and type it 3 times from memory. Anti-cheat built in. 61 commands across 8 levels.',
     tag_training: 'Training',
