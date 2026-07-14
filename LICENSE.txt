@@ -1,0 +1,92 @@
+═══════════════════════════════════════════════════════════════
+  HELLFIRE TOOLS — LICENCIA DE USO / LICENSE
+  © 2026 Hellfire Tools · jerohellfire
+  https://jerohellfire.github.io/hellfire-tools/
+═══════════════════════════════════════════════════════════════
+
+
+─── ESPAÑOL ───────────────────────────────────────────────────
+
+LICENCIA FREEWARE — USO PERSONAL Y EDUCATIVO
+
+Este software (en adelante "el Software") se distribuye de forma
+gratuita para uso personal y educativo.
+
+PERMITIDO:
+  · Descargar y usar el Software sin coste.
+  · Uso personal, doméstico, académico y educativo.
+  · Compartir el enlace oficial de descarga.
+
+NO PERMITIDO:
+  · Vender el Software o cobrar por él.
+  · Distribuirlo comercialmente sin autorización expresa
+    y por escrito del autor.
+  · Redistribuir los ejecutables modificados haciéndolos
+    pasar por originales.
+  · Uso del Software o sus herramientas para actividades
+    ilegales.
+
+CÓDIGO FUENTE:
+  Hellfire Tools distribuye únicamente ejecutables compilados
+  (.exe / .zip). El código fuente no es de dominio público.
+  Todos los derechos reservados.
+
+DESCARGO DE RESPONSABILIDAD:
+  EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN
+  TIPO, EXPRESA O IMPLÍCITA. EL USO ES BAJO LA EXCLUSIVA
+  RESPONSABILIDAD DEL USUARIO. EL AUTOR NO SE HACE RESPONSABLE
+  DE DAÑOS DIRECTOS O INDIRECTOS, PÉRDIDA DE DATOS, FALLOS DE
+  HARDWARE O CUALQUIER OTRO PERJUICIO DERIVADO DEL USO O
+  IMPOSIBILIDAD DE USO DEL SOFTWARE.
+
+  Las herramientas de seguridad, OSINT y pentesting incluidas
+  en este proyecto están destinadas EXCLUSIVAMENTE a fines
+  educativos y de investigación. Deben usarse únicamente sobre
+  sistemas propios o sobre los que se tenga autorización escrita
+  y explícita. El uso no autorizado es ILEGAL y responsabilidad
+  exclusiva del usuario.
+
+
+─── ENGLISH ───────────────────────────────────────────────────
+
+FREEWARE LICENSE — PERSONAL AND EDUCATIONAL USE
+
+This software (hereinafter "the Software") is distributed free
+of charge for personal and educational use.
+
+PERMITTED:
+  · Download and use the Software at no cost.
+  · Personal, home, academic and educational use.
+  · Sharing the official download link.
+
+NOT PERMITTED:
+  · Selling the Software or charging for it.
+  · Distributing it commercially without the author's express
+    written authorization.
+  · Redistributing modified executables as if they were the
+    originals.
+  · Using the Software or its tools for illegal activities.
+
+SOURCE CODE:
+  Hellfire Tools distributes only compiled executables
+  (.exe / .zip). Source code is not public domain.
+  All rights reserved.
+
+DISCLAIMER:
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+  KIND, EXPRESS OR IMPLIED. USE IS AT THE USER'S SOLE RISK.
+  THE AUTHOR IS NOT LIABLE FOR ANY DIRECT OR INDIRECT DAMAGES,
+  DATA LOSS, HARDWARE FAILURE OR ANY OTHER HARM ARISING FROM
+  THE USE OR INABILITY TO USE THE SOFTWARE.
+
+  The security, OSINT and pentesting tools included in this
+  project are intended EXCLUSIVELY for educational and research
+  purposes. They must only be used on your own systems or on
+  systems for which you have explicit written authorization.
+  Unauthorized use is ILLEGAL and the sole responsibility of
+  the user.
+
+═══════════════════════════════════════════════════════════════
+  © 2026 Hellfire Tools · jerohellfire
+  https://jerohellfire.github.io/hellfire-tools/
+═══════════════════════════════════════════════════════════════
